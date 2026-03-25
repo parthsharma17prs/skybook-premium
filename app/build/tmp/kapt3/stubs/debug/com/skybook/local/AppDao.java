@@ -28,7 +28,7 @@ public abstract interface AppDao {
     java.util.List<com.skybook.local.FlightEntity> flights, @org.jetbrains.annotations.NotNull()
     kotlin.coroutines.Continuation<? super kotlin.Unit> $completion);
     
-    @androidx.room.Query(value = "SELECT * FROM flights WHERE fromCity = :from AND toCity = :to")
+    @androidx.room.Query(value = "SELECT * FROM flights WHERE fromCity LIKE \'%\' || :from || \'%\' AND toCity LIKE \'%\' || :to || \'%\'")
     @org.jetbrains.annotations.Nullable()
     public abstract java.lang.Object searchFlights(@org.jetbrains.annotations.NotNull()
     java.lang.String from, @org.jetbrains.annotations.NotNull()

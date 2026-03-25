@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,7 +23,13 @@ public final class ActivitySplashBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final ImageView ivPlane;
+  public final ImageView ivMovingPlane;
+
+  @NonNull
+  public final LinearLayout llLogo;
+
+  @NonNull
+  public final ProgressBar pbLoading;
 
   @NonNull
   public final ConstraintLayout rootLayout;
@@ -29,10 +37,14 @@ public final class ActivitySplashBinding implements ViewBinding {
   @NonNull
   public final TextView tvAppName;
 
-  private ActivitySplashBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView ivPlane,
-      @NonNull ConstraintLayout rootLayout, @NonNull TextView tvAppName) {
+  private ActivitySplashBinding(@NonNull ConstraintLayout rootView,
+      @NonNull ImageView ivMovingPlane, @NonNull LinearLayout llLogo,
+      @NonNull ProgressBar pbLoading, @NonNull ConstraintLayout rootLayout,
+      @NonNull TextView tvAppName) {
     this.rootView = rootView;
-    this.ivPlane = ivPlane;
+    this.ivMovingPlane = ivMovingPlane;
+    this.llLogo = llLogo;
+    this.pbLoading = pbLoading;
     this.rootLayout = rootLayout;
     this.tvAppName = tvAppName;
   }
@@ -64,9 +76,21 @@ public final class ActivitySplashBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.iv_plane;
-      ImageView ivPlane = ViewBindings.findChildViewById(rootView, id);
-      if (ivPlane == null) {
+      id = R.id.iv_moving_plane;
+      ImageView ivMovingPlane = ViewBindings.findChildViewById(rootView, id);
+      if (ivMovingPlane == null) {
+        break missingId;
+      }
+
+      id = R.id.ll_logo;
+      LinearLayout llLogo = ViewBindings.findChildViewById(rootView, id);
+      if (llLogo == null) {
+        break missingId;
+      }
+
+      id = R.id.pb_loading;
+      ProgressBar pbLoading = ViewBindings.findChildViewById(rootView, id);
+      if (pbLoading == null) {
         break missingId;
       }
 
@@ -78,7 +102,8 @@ public final class ActivitySplashBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivitySplashBinding((ConstraintLayout) rootView, ivPlane, rootLayout, tvAppName);
+      return new ActivitySplashBinding((ConstraintLayout) rootView, ivMovingPlane, llLogo,
+          pbLoading, rootLayout, tvAppName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -25,7 +25,22 @@ public final class ActivityMainBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final LinearLayout bottomNavMock;
+  public final LinearLayout bottomNav;
+
+  @NonNull
+  public final LinearLayout btnClassSelector;
+
+  @NonNull
+  public final LinearLayout btnDepartDate;
+
+  @NonNull
+  public final ImageView btnPaxMinus;
+
+  @NonNull
+  public final ImageView btnPaxPlus;
+
+  @NonNull
+  public final LinearLayout btnReturnDate;
 
   @NonNull
   public final FrameLayout btnSearchFlights;
@@ -43,21 +58,62 @@ public final class ActivityMainBinding implements ViewBinding {
   public final ShapeableImageView ivProfile;
 
   @NonNull
+  public final ImageView navBookings;
+
+  @NonNull
+  public final ImageView navHome;
+
+  @NonNull
+  public final ImageView navProfile;
+
+  @NonNull
+  public final ImageView navSearch;
+
+  @NonNull
+  public final TextView tvClass;
+
+  @NonNull
+  public final TextView tvDepartDate;
+
+  @NonNull
   public final TextView tvGreeting;
 
-  private ActivityMainBinding(@NonNull ConstraintLayout rootView,
-      @NonNull LinearLayout bottomNavMock, @NonNull FrameLayout btnSearchFlights,
+  @NonNull
+  public final TextView tvPaxCount;
+
+  @NonNull
+  public final TextView tvReturnDate;
+
+  private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull LinearLayout bottomNav,
+      @NonNull LinearLayout btnClassSelector, @NonNull LinearLayout btnDepartDate,
+      @NonNull ImageView btnPaxMinus, @NonNull ImageView btnPaxPlus,
+      @NonNull LinearLayout btnReturnDate, @NonNull FrameLayout btnSearchFlights,
       @NonNull AutoCompleteTextView etFromCity, @NonNull AutoCompleteTextView etToCity,
       @NonNull ImageView ivBell, @NonNull ShapeableImageView ivProfile,
-      @NonNull TextView tvGreeting) {
+      @NonNull ImageView navBookings, @NonNull ImageView navHome, @NonNull ImageView navProfile,
+      @NonNull ImageView navSearch, @NonNull TextView tvClass, @NonNull TextView tvDepartDate,
+      @NonNull TextView tvGreeting, @NonNull TextView tvPaxCount, @NonNull TextView tvReturnDate) {
     this.rootView = rootView;
-    this.bottomNavMock = bottomNavMock;
+    this.bottomNav = bottomNav;
+    this.btnClassSelector = btnClassSelector;
+    this.btnDepartDate = btnDepartDate;
+    this.btnPaxMinus = btnPaxMinus;
+    this.btnPaxPlus = btnPaxPlus;
+    this.btnReturnDate = btnReturnDate;
     this.btnSearchFlights = btnSearchFlights;
     this.etFromCity = etFromCity;
     this.etToCity = etToCity;
     this.ivBell = ivBell;
     this.ivProfile = ivProfile;
+    this.navBookings = navBookings;
+    this.navHome = navHome;
+    this.navProfile = navProfile;
+    this.navSearch = navSearch;
+    this.tvClass = tvClass;
+    this.tvDepartDate = tvDepartDate;
     this.tvGreeting = tvGreeting;
+    this.tvPaxCount = tvPaxCount;
+    this.tvReturnDate = tvReturnDate;
   }
 
   @Override
@@ -87,9 +143,39 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.bottom_nav_mock;
-      LinearLayout bottomNavMock = ViewBindings.findChildViewById(rootView, id);
-      if (bottomNavMock == null) {
+      id = R.id.bottom_nav;
+      LinearLayout bottomNav = ViewBindings.findChildViewById(rootView, id);
+      if (bottomNav == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_class_selector;
+      LinearLayout btnClassSelector = ViewBindings.findChildViewById(rootView, id);
+      if (btnClassSelector == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_depart_date;
+      LinearLayout btnDepartDate = ViewBindings.findChildViewById(rootView, id);
+      if (btnDepartDate == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_pax_minus;
+      ImageView btnPaxMinus = ViewBindings.findChildViewById(rootView, id);
+      if (btnPaxMinus == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_pax_plus;
+      ImageView btnPaxPlus = ViewBindings.findChildViewById(rootView, id);
+      if (btnPaxPlus == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_return_date;
+      LinearLayout btnReturnDate = ViewBindings.findChildViewById(rootView, id);
+      if (btnReturnDate == null) {
         break missingId;
       }
 
@@ -123,14 +209,64 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.nav_bookings;
+      ImageView navBookings = ViewBindings.findChildViewById(rootView, id);
+      if (navBookings == null) {
+        break missingId;
+      }
+
+      id = R.id.nav_home;
+      ImageView navHome = ViewBindings.findChildViewById(rootView, id);
+      if (navHome == null) {
+        break missingId;
+      }
+
+      id = R.id.nav_profile;
+      ImageView navProfile = ViewBindings.findChildViewById(rootView, id);
+      if (navProfile == null) {
+        break missingId;
+      }
+
+      id = R.id.nav_search;
+      ImageView navSearch = ViewBindings.findChildViewById(rootView, id);
+      if (navSearch == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_class;
+      TextView tvClass = ViewBindings.findChildViewById(rootView, id);
+      if (tvClass == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_depart_date;
+      TextView tvDepartDate = ViewBindings.findChildViewById(rootView, id);
+      if (tvDepartDate == null) {
+        break missingId;
+      }
+
       id = R.id.tv_greeting;
       TextView tvGreeting = ViewBindings.findChildViewById(rootView, id);
       if (tvGreeting == null) {
         break missingId;
       }
 
-      return new ActivityMainBinding((ConstraintLayout) rootView, bottomNavMock, btnSearchFlights,
-          etFromCity, etToCity, ivBell, ivProfile, tvGreeting);
+      id = R.id.tv_pax_count;
+      TextView tvPaxCount = ViewBindings.findChildViewById(rootView, id);
+      if (tvPaxCount == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_return_date;
+      TextView tvReturnDate = ViewBindings.findChildViewById(rootView, id);
+      if (tvReturnDate == null) {
+        break missingId;
+      }
+
+      return new ActivityMainBinding((ConstraintLayout) rootView, bottomNav, btnClassSelector,
+          btnDepartDate, btnPaxMinus, btnPaxPlus, btnReturnDate, btnSearchFlights, etFromCity,
+          etToCity, ivBell, ivProfile, navBookings, navHome, navProfile, navSearch, tvClass,
+          tvDepartDate, tvGreeting, tvPaxCount, tvReturnDate);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

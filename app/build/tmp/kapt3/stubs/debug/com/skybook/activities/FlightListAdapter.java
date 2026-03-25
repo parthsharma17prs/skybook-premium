@@ -30,7 +30,7 @@ public final class FlightListAdapter extends androidx.recyclerview.widget.Recycl
         return 0;
     }
     
-    @kotlin.Metadata(mv = {1, 9, 0}, k = 1, xi = 48, d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\t\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004R\u0011\u0010\u0005\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\bR\u0011\u0010\t\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\n\u0010\bR\u0011\u0010\u000b\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\f\u0010\bR\u0011\u0010\r\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\bR\u0011\u0010\u000f\u001a\u00020\u0010\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0011\u0010\u0012R\u0011\u0010\u0013\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0014\u0010\bR\u0011\u0010\u0015\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0016\u0010\bR\u0011\u0010\u0017\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0018\u0010\b\u00a8\u0006\u0019"}, d2 = {"Lcom/skybook/activities/FlightListAdapter$ViewHolder;", "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;", "view", "Landroid/view/View;", "(Landroid/view/View;)V", "classType", "Landroid/widget/TextView;", "getClassType", "()Landroid/widget/TextView;", "duration", "getDuration", "fromCity", "getFromCity", "fromCode", "getFromCode", "logo", "Landroid/widget/ImageView;", "getLogo", "()Landroid/widget/ImageView;", "price", "getPrice", "toCity", "getToCity", "toCode", "getToCode", "app_debug"})
+    @kotlin.Metadata(mv = {1, 9, 0}, k = 1, xi = 48, d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\t\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004R\u0011\u0010\u0005\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\bR\u0011\u0010\t\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\n\u0010\bR\u0011\u0010\u000b\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\f\u0010\bR\u0011\u0010\r\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\bR\u0011\u0010\u000f\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0010\u0010\bR\u0011\u0010\u0011\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\bR\u0011\u0010\u0013\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0014\u0010\bR\u0011\u0010\u0015\u001a\u00020\u0016\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0017\u0010\u0018R\u0011\u0010\u0019\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\u001a\u0010\bR\u0011\u0010\u001b\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\u001c\u0010\bR\u0011\u0010\u001d\u001a\u00020\u0006\u00a2\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\b\u00a8\u0006\u001f"}, d2 = {"Lcom/skybook/activities/FlightListAdapter$ViewHolder;", "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;", "view", "Landroid/view/View;", "(Landroid/view/View;)V", "airline", "Landroid/widget/TextView;", "getAirline", "()Landroid/widget/TextView;", "arrive", "getArrive", "classType", "getClassType", "depart", "getDepart", "duration", "getDuration", "fromCity", "getFromCity", "fromCode", "getFromCode", "logo", "Landroid/widget/ImageView;", "getLogo", "()Landroid/widget/ImageView;", "price", "getPrice", "toCity", "getToCity", "toCode", "getToCode", "app_debug"})
     public static final class ViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {
         @org.jetbrains.annotations.NotNull()
         private final android.widget.ImageView logo = null;
@@ -48,6 +48,12 @@ public final class FlightListAdapter extends androidx.recyclerview.widget.Recycl
         private final android.widget.TextView price = null;
         @org.jetbrains.annotations.NotNull()
         private final android.widget.TextView classType = null;
+        @org.jetbrains.annotations.NotNull()
+        private final android.widget.TextView depart = null;
+        @org.jetbrains.annotations.NotNull()
+        private final android.widget.TextView arrive = null;
+        @org.jetbrains.annotations.NotNull()
+        private final android.widget.TextView airline = null;
         
         public ViewHolder(@org.jetbrains.annotations.NotNull()
         android.view.View view) {
@@ -91,6 +97,21 @@ public final class FlightListAdapter extends androidx.recyclerview.widget.Recycl
         
         @org.jetbrains.annotations.NotNull()
         public final android.widget.TextView getClassType() {
+            return null;
+        }
+        
+        @org.jetbrains.annotations.NotNull()
+        public final android.widget.TextView getDepart() {
+            return null;
+        }
+        
+        @org.jetbrains.annotations.NotNull()
+        public final android.widget.TextView getArrive() {
+            return null;
+        }
+        
+        @org.jetbrains.annotations.NotNull()
+        public final android.widget.TextView getAirline() {
             return null;
         }
     }

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -28,14 +29,28 @@ public final class ActivityFlightResultsBinding implements ViewBinding {
   public final LinearLayout header;
 
   @NonNull
+  public final LinearLayout llEmpty;
+
+  @NonNull
   public final RecyclerView rvFlights;
 
+  @NonNull
+  public final TextView tvResultsCount;
+
+  @NonNull
+  public final TextView tvRoute;
+
   private ActivityFlightResultsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageView btnBack, @NonNull LinearLayout header, @NonNull RecyclerView rvFlights) {
+      @NonNull ImageView btnBack, @NonNull LinearLayout header, @NonNull LinearLayout llEmpty,
+      @NonNull RecyclerView rvFlights, @NonNull TextView tvResultsCount,
+      @NonNull TextView tvRoute) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.header = header;
+    this.llEmpty = llEmpty;
     this.rvFlights = rvFlights;
+    this.tvResultsCount = tvResultsCount;
+    this.tvRoute = tvRoute;
   }
 
   @Override
@@ -77,14 +92,32 @@ public final class ActivityFlightResultsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.ll_empty;
+      LinearLayout llEmpty = ViewBindings.findChildViewById(rootView, id);
+      if (llEmpty == null) {
+        break missingId;
+      }
+
       id = R.id.rv_flights;
       RecyclerView rvFlights = ViewBindings.findChildViewById(rootView, id);
       if (rvFlights == null) {
         break missingId;
       }
 
-      return new ActivityFlightResultsBinding((ConstraintLayout) rootView, btnBack, header,
-          rvFlights);
+      id = R.id.tv_results_count;
+      TextView tvResultsCount = ViewBindings.findChildViewById(rootView, id);
+      if (tvResultsCount == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_route;
+      TextView tvRoute = ViewBindings.findChildViewById(rootView, id);
+      if (tvRoute == null) {
+        break missingId;
+      }
+
+      return new ActivityFlightResultsBinding((ConstraintLayout) rootView, btnBack, header, llEmpty,
+          rvFlights, tvResultsCount, tvRoute);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

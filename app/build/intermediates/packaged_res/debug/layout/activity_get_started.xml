@@ -5,87 +5,148 @@
     android:layout_height="match_parent"
     android:background="@color/bg_deep_purple">
 
-    <!-- Pattern Background -->
+    <!-- Fullscreen airplane image background (like the screenshot) -->
     <ImageView
+        android:id="@+id/iv_bg_plane"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/world"
-        android:scaleType="centerCrop"
-        android:alpha="0.3" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_v1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_v2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
-
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="32dp"
-        android:text="Discover your\nDream Flight\nEasily"
-        android:textColor="@color/white"
-        android:textSize="38sp"
-        android:textStyle="bold"
-        android:fontFamily="@font/outfit_bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/gl_v1" />
-
-    <TextView
-        android:id="@+id/tv_subtitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:paddingHorizontal="32dp"
-        android:text="Find an easy way to buy airplane tickets\nwith just a few clicks in the application"
-        android:textColor="@color/colorTextSecondary"
-        android:textSize="14sp"
-        android:fontFamily="@font/outfit_regular"
-        app:layout_constraintTop_toBottomOf="@id/tv_title" />
-
-    <!-- Plane image - using a ratio for orientation safety -->
-    <ImageView
-        android:id="@+id/iv_plane"
-        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="32dp"
         android:src="@drawable/splash_bg"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@id/btn_get_started"
-        app:layout_constraintDimensionRatio="H,1:1"
+        android:scaleType="centerCrop"
+        android:alpha="0.85"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cv_card"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/gl_v2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <FrameLayout
-        android:id="@+id/btn_get_started"
+    <!-- Dark overlay on image -->
+    <View
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginBottom="48dp"
-        android:background="@drawable/bg_search_btn"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_height="0dp"
+        android:background="#55000000"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cv_card" />
+
+    <!-- App branding top-left -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginTop="48dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_plane"
+            app:tint="#EC4899" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Get Started"
+            android:layout_marginStart="8dp"
+            android:text="SkyBook"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             android:fontFamily="@font/outfit_bold" />
-    </FrameLayout>
+    </LinearLayout>
 
+    <!-- Hero text -->
+    <LinearLayout
+        android:id="@+id/ll_hero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@id/cv_card">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Discover your"
+            android:textColor="#CCFFFFFF"
+            android:textSize="28sp"
+            android:fontFamily="@font/outfit_medium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dream Flight"
+            android:textColor="@color/white"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/outfit_bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Book with ease, travel in style."
+            android:textColor="@color/accent_pink"
+            android:textSize="15sp"
+            android:fontFamily="@font/outfit_medium" />
+    </LinearLayout>
+
+    <!-- Get started card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="0dp"
+        app:cardBackgroundColor="#1E0A3C"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="32dp"
+            android:paddingTop="36dp"
+            android:paddingBottom="48dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ready to fly?"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/outfit_bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Thousands of routes, one tap away."
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="14sp"
+                android:fontFamily="@font/outfit_medium" />
+
+            <FrameLayout
+                android:id="@+id/btn_get_started"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/bg_search_btn"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Get Started ✈"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/outfit_bold" />
+            </FrameLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

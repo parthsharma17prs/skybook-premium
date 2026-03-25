@@ -384,7 +384,7 @@ public final class AppDao_Impl implements AppDao {
   @Override
   public Object searchFlights(final String from, final String to,
       final Continuation<? super List<FlightEntity>> $completion) {
-    final String _sql = "SELECT * FROM flights WHERE fromCity = ? AND toCity = ?";
+    final String _sql = "SELECT * FROM flights WHERE fromCity LIKE '%' || ? || '%' AND toCity LIKE '%' || ? || '%'";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 2);
     int _argIndex = 1;
     if (from == null) {

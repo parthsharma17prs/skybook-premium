@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -21,21 +22,37 @@ class FlightResultsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flight_results)
 
-        val from = intent.getStringExtra("FROM_CITY") ?: "New York"
-        val to = intent.getStringExtra("TO_CITY") ?: "Los Angeles"
+        val from = intent.getStringExtra("FROM_CITY") ?: ""
+        val to = intent.getStringExtra("TO_CITY") ?: ""
+
+        val tvRoute = findViewById<TextView>(R.id.tv_route)
+        val tvCount = findViewById<TextView>(R.id.tv_results_count)
+        val llEmpty = findViewById<LinearLayout>(R.id.ll_empty)
+        val rv = findViewById<RecyclerView>(R.id.rv_flights)
+
+        tvRoute.text = "$from → $to"
 
         findViewById<ImageView>(R.id.btn_back).setOnClickListener { onBackPressed() }
 
-        val rv = findViewById<RecyclerView>(R.id.rv_flights)
         rv.layoutManager = LinearLayoutManager(this)
 
         lifecycleScope.launch {
             val dao = AppDatabase.getDatabase(this@FlightResultsActivity).dao()
             val flights = dao.searchFlights(from, to)
-            rv.adapter = FlightListAdapter(flights) { flightId ->
-                val intent = Intent(this@FlightResultsActivity, SeatSelectorActivity::class.java)
-                intent.putExtra("FLIGHT_ID", flightId)
-                startActivity(intent)
+
+            if (flights.isEmpty()) {
+                tvCount.text = "No flights found"
+                rv.visibility = View.GONE
+                llEmpty.visibility = View.VISIBLE
+            } else {
+                tvCount.text = "${flights.size} flights available"
+                rv.visibility = View.VISIBLE
+                llEmpty.visibility = View.GONE
+                rv.adapter = FlightListAdapter(flights) { flightId ->
+                    val intent = Intent(this@FlightResultsActivity, SeatSelectorActivity::class.java)
+                    intent.putExtra("FLIGHT_ID", flightId)
+                    startActivity(intent)
+                }
             }
         }
     }
@@ -55,6 +72,9 @@ class FlightListAdapter(
         val duration: TextView = view.findViewById(R.id.tv_duration)
         val price: TextView = view.findViewById(R.id.tv_price)
         val classType: TextView = view.findViewById(R.id.tv_class_type)
+        val depart: TextView = view.findViewById(R.id.tv_depart_time)
+        val arrive: TextView = view.findViewById(R.id.tv_arrive_time)
+        val airline: TextView = view.findViewById(R.id.tv_airline_name)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -69,12 +89,25 @@ class FlightListAdapter(
         holder.fromCode.text = flight.fromCode
         holder.toCode.text = flight.toCode
         holder.duration.text = flight.duration
-        holder.price.text = "$${flight.price}"
-        holder.classType.text = "${flight.classType} class"
-        
-        // Dynamically get logo resource
-        val resId = holder.itemView.context.resources.getIdentifier(flight.airlineLogo, "drawable", holder.itemView.context.packageName)
+        holder.price.text = "$${String.format("%.0f", flight.price)}"
+        holder.classType.text = flight.classType
+        holder.depart.text = flight.departureTime
+        holder.arrive.text = flight.arrivalTime
+        holder.airline.text = flight.airlineName
+
+        val resId = holder.itemView.context.resources.getIdentifier(
+            flight.airlineLogo, "drawable", holder.itemView.context.packageName
+        )
         if (resId != 0) holder.logo.setImageResource(resId)
+
+        // Stagger animation
+        holder.itemView.alpha = 0f
+        holder.itemView.translationY = 40f
+        holder.itemView.animate()
+            .alpha(1f).translationY(0f)
+            .setDuration(350)
+            .setStartDelay(position * 80L)
+            .start()
 
         holder.itemView.setOnClickListener { onClick(flight.id) }
     }

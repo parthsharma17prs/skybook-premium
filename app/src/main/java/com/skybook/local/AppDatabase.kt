@@ -19,7 +19,7 @@ interface AppDao {
     @Insert
     suspend fun insertFlights(flights: List<FlightEntity>)
 
-    @Query("SELECT * FROM flights WHERE fromCity = :from AND toCity = :to")
+    @Query("SELECT * FROM flights WHERE fromCity LIKE '%' || :from || '%' AND toCity LIKE '%' || :to || '%'")
     suspend fun searchFlights(from: String, to: String): List<FlightEntity>
 
     @Query("SELECT COUNT(*) FROM flights")

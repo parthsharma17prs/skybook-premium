@@ -24,7 +24,16 @@ public final class ItemFlightCardBinding implements ViewBinding {
   public final ImageView ivAirlineLogo;
 
   @NonNull
+  public final TextView tvAirlineName;
+
+  @NonNull
+  public final TextView tvArriveTime;
+
+  @NonNull
   public final TextView tvClassType;
+
+  @NonNull
+  public final TextView tvDepartTime;
 
   @NonNull
   public final TextView tvDuration;
@@ -45,12 +54,16 @@ public final class ItemFlightCardBinding implements ViewBinding {
   public final TextView tvToCode;
 
   private ItemFlightCardBinding(@NonNull CardView rootView, @NonNull ImageView ivAirlineLogo,
-      @NonNull TextView tvClassType, @NonNull TextView tvDuration, @NonNull TextView tvFromCity,
-      @NonNull TextView tvFromCode, @NonNull TextView tvPrice, @NonNull TextView tvToCity,
-      @NonNull TextView tvToCode) {
+      @NonNull TextView tvAirlineName, @NonNull TextView tvArriveTime,
+      @NonNull TextView tvClassType, @NonNull TextView tvDepartTime, @NonNull TextView tvDuration,
+      @NonNull TextView tvFromCity, @NonNull TextView tvFromCode, @NonNull TextView tvPrice,
+      @NonNull TextView tvToCity, @NonNull TextView tvToCode) {
     this.rootView = rootView;
     this.ivAirlineLogo = ivAirlineLogo;
+    this.tvAirlineName = tvAirlineName;
+    this.tvArriveTime = tvArriveTime;
     this.tvClassType = tvClassType;
+    this.tvDepartTime = tvDepartTime;
     this.tvDuration = tvDuration;
     this.tvFromCity = tvFromCity;
     this.tvFromCode = tvFromCode;
@@ -92,9 +105,27 @@ public final class ItemFlightCardBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tv_airline_name;
+      TextView tvAirlineName = ViewBindings.findChildViewById(rootView, id);
+      if (tvAirlineName == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_arrive_time;
+      TextView tvArriveTime = ViewBindings.findChildViewById(rootView, id);
+      if (tvArriveTime == null) {
+        break missingId;
+      }
+
       id = R.id.tv_class_type;
       TextView tvClassType = ViewBindings.findChildViewById(rootView, id);
       if (tvClassType == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_depart_time;
+      TextView tvDepartTime = ViewBindings.findChildViewById(rootView, id);
+      if (tvDepartTime == null) {
         break missingId;
       }
 
@@ -134,8 +165,9 @@ public final class ItemFlightCardBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemFlightCardBinding((CardView) rootView, ivAirlineLogo, tvClassType, tvDuration,
-          tvFromCity, tvFromCode, tvPrice, tvToCity, tvToCode);
+      return new ItemFlightCardBinding((CardView) rootView, ivAirlineLogo, tvAirlineName,
+          tvArriveTime, tvClassType, tvDepartTime, tvDuration, tvFromCity, tvFromCode, tvPrice,
+          tvToCity, tvToCode);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

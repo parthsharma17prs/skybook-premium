@@ -1,98 +1,118 @@
 [
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/item_recommendation_card.xml",
-        "source": "com.skybook.app-main-57:/layout/item_recommendation_card.xml"
-    },
-    {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/item_seat.xml",
-        "source": "com.skybook.app-main-57:/layout/item_seat.xml"
-    },
-    {
         "merged": "com.skybook.app-mergeDebugResources-54:/layout/activity_get_started.xml",
         "source": "com.skybook.app-main-57:/layout/activity_get_started.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/activity_auth.xml",
-        "source": "com.skybook.app-main-57:/layout/activity_auth.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/fragment_recommendations.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/fragment_recommendations.xml"
+    },
+    {
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/activity_auth.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/activity_auth.xml"
+    },
+    {
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/activity_splash.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/activity_seat_selector.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/activity_seat_selector.xml"
     },
     {
         "merged": "com.skybook.app-mergeDebugResources-54:/layout/activity_splash.xml",
         "source": "com.skybook.app-main-57:/layout/activity_splash.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/activity_ticket_details.xml",
-        "source": "com.skybook.app-main-57:/layout/activity_ticket_details.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/activity_choose_seats.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/activity_choose_seats.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/activity_booking_history.xml",
-        "source": "com.skybook.app-main-57:/layout/activity_booking_history.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/activity_flight_results.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/activity_flight_results.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/activity_profile.xml",
-        "source": "com.skybook.app-main-57:/layout/activity_profile.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/fragment_home.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/fragment_home.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/fragment_bookings.xml",
-        "source": "com.skybook.app-main-57:/layout/fragment_bookings.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/activity_ticket_details.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/activity_ticket_details.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/activity_booking.xml",
-        "source": "com.skybook.app-main-57:/layout/activity_booking.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/fragment_profile.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/fragment_profile.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/activity_check_in.xml",
-        "source": "com.skybook.app-main-57:/layout/activity_check_in.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/activity_get_started.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/activity_get_started.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/item_booking_card.xml",
-        "source": "com.skybook.app-main-57:/layout/item_booking_card.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/activity_booking_history.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/activity_booking_history.xml"
+    },
+    {
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/item_booking_card.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/item_booking_card.xml"
     },
     {
         "merged": "com.skybook.app-mergeDebugResources-54:/layout/item_flight_card.xml",
         "source": "com.skybook.app-main-57:/layout/item_flight_card.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/activity_seat_selector.xml",
-        "source": "com.skybook.app-main-57:/layout/activity_seat_selector.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/item_recommendation_card.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/item_recommendation_card.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/fragment_recommendations.xml",
-        "source": "com.skybook.app-main-57:/layout/fragment_recommendations.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/activity_main.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/activity_main.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/activity_choose_seats.xml",
-        "source": "com.skybook.app-main-57:/layout/activity_choose_seats.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/item_seat.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/item_seat.xml"
     },
     {
         "merged": "com.skybook.app-mergeDebugResources-54:/layout/activity_main.xml",
         "source": "com.skybook.app-main-57:/layout/activity_main.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/item_offer_banner.xml",
-        "source": "com.skybook.app-main-57:/layout/item_offer_banner.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/activity_profile.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/activity_profile.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/activity_admin_dashboard.xml",
-        "source": "com.skybook.app-main-57:/layout/activity_admin_dashboard.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/item_flight_card.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/item_flight_card.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/activity_confirmation.xml",
-        "source": "com.skybook.app-main-57:/layout/activity_confirmation.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/item_offer_banner.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/item_offer_banner.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/activity_flight_status.xml",
-        "source": "com.skybook.app-main-57:/layout/activity_flight_status.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/activity_flight_status.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/activity_flight_status.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/fragment_home.xml",
-        "source": "com.skybook.app-main-57:/layout/fragment_home.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/activity_admin_dashboard.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/activity_admin_dashboard.xml"
+    },
+    {
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/activity_booking.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/activity_booking.xml"
+    },
+    {
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/activity_confirmation.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/activity_confirmation.xml"
+    },
+    {
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/activity_check_in.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/activity_check_in.xml"
     },
     {
         "merged": "com.skybook.app-mergeDebugResources-54:/layout/activity_flight_results.xml",
         "source": "com.skybook.app-main-57:/layout/activity_flight_results.xml"
     },
     {
-        "merged": "com.skybook.app-mergeDebugResources-54:/layout/fragment_profile.xml",
-        "source": "com.skybook.app-main-57:/layout/fragment_profile.xml"
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-54:/layout/fragment_bookings.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/fragment_bookings.xml"
     }
 ]

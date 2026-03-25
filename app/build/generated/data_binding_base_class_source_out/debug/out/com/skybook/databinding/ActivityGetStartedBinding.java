@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.Guideline;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.skybook.R;
@@ -26,30 +26,22 @@ public final class ActivityGetStartedBinding implements ViewBinding {
   public final FrameLayout btnGetStarted;
 
   @NonNull
-  public final Guideline glV1;
+  public final CardView cvCard;
 
   @NonNull
-  public final Guideline glV2;
+  public final ImageView ivBgPlane;
 
   @NonNull
-  public final ImageView ivPlane;
-
-  @NonNull
-  public final TextView tvSubtitle;
-
-  @NonNull
-  public final TextView tvTitle;
+  public final LinearLayout llHero;
 
   private ActivityGetStartedBinding(@NonNull ConstraintLayout rootView,
-      @NonNull FrameLayout btnGetStarted, @NonNull Guideline glV1, @NonNull Guideline glV2,
-      @NonNull ImageView ivPlane, @NonNull TextView tvSubtitle, @NonNull TextView tvTitle) {
+      @NonNull FrameLayout btnGetStarted, @NonNull CardView cvCard, @NonNull ImageView ivBgPlane,
+      @NonNull LinearLayout llHero) {
     this.rootView = rootView;
     this.btnGetStarted = btnGetStarted;
-    this.glV1 = glV1;
-    this.glV2 = glV2;
-    this.ivPlane = ivPlane;
-    this.tvSubtitle = tvSubtitle;
-    this.tvTitle = tvTitle;
+    this.cvCard = cvCard;
+    this.ivBgPlane = ivBgPlane;
+    this.llHero = llHero;
   }
 
   @Override
@@ -85,38 +77,26 @@ public final class ActivityGetStartedBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.gl_v1;
-      Guideline glV1 = ViewBindings.findChildViewById(rootView, id);
-      if (glV1 == null) {
+      id = R.id.cv_card;
+      CardView cvCard = ViewBindings.findChildViewById(rootView, id);
+      if (cvCard == null) {
         break missingId;
       }
 
-      id = R.id.gl_v2;
-      Guideline glV2 = ViewBindings.findChildViewById(rootView, id);
-      if (glV2 == null) {
+      id = R.id.iv_bg_plane;
+      ImageView ivBgPlane = ViewBindings.findChildViewById(rootView, id);
+      if (ivBgPlane == null) {
         break missingId;
       }
 
-      id = R.id.iv_plane;
-      ImageView ivPlane = ViewBindings.findChildViewById(rootView, id);
-      if (ivPlane == null) {
+      id = R.id.ll_hero;
+      LinearLayout llHero = ViewBindings.findChildViewById(rootView, id);
+      if (llHero == null) {
         break missingId;
       }
 
-      id = R.id.tv_subtitle;
-      TextView tvSubtitle = ViewBindings.findChildViewById(rootView, id);
-      if (tvSubtitle == null) {
-        break missingId;
-      }
-
-      id = R.id.tv_title;
-      TextView tvTitle = ViewBindings.findChildViewById(rootView, id);
-      if (tvTitle == null) {
-        break missingId;
-      }
-
-      return new ActivityGetStartedBinding((ConstraintLayout) rootView, btnGetStarted, glV1, glV2,
-          ivPlane, tvSubtitle, tvTitle);
+      return new ActivityGetStartedBinding((ConstraintLayout) rootView, btnGetStarted, cvCard,
+          ivBgPlane, llHero);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
