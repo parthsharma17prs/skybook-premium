@@ -4,6 +4,7 @@ package com.skybook.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -30,6 +31,12 @@ public final class ActivityMainBinding implements ViewBinding {
   public final FrameLayout btnSearchFlights;
 
   @NonNull
+  public final AutoCompleteTextView etFromCity;
+
+  @NonNull
+  public final AutoCompleteTextView etToCity;
+
+  @NonNull
   public final ImageView ivBell;
 
   @NonNull
@@ -40,11 +47,14 @@ public final class ActivityMainBinding implements ViewBinding {
 
   private ActivityMainBinding(@NonNull ConstraintLayout rootView,
       @NonNull LinearLayout bottomNavMock, @NonNull FrameLayout btnSearchFlights,
+      @NonNull AutoCompleteTextView etFromCity, @NonNull AutoCompleteTextView etToCity,
       @NonNull ImageView ivBell, @NonNull ShapeableImageView ivProfile,
       @NonNull TextView tvGreeting) {
     this.rootView = rootView;
     this.bottomNavMock = bottomNavMock;
     this.btnSearchFlights = btnSearchFlights;
+    this.etFromCity = etFromCity;
+    this.etToCity = etToCity;
     this.ivBell = ivBell;
     this.ivProfile = ivProfile;
     this.tvGreeting = tvGreeting;
@@ -89,6 +99,18 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.et_from_city;
+      AutoCompleteTextView etFromCity = ViewBindings.findChildViewById(rootView, id);
+      if (etFromCity == null) {
+        break missingId;
+      }
+
+      id = R.id.et_to_city;
+      AutoCompleteTextView etToCity = ViewBindings.findChildViewById(rootView, id);
+      if (etToCity == null) {
+        break missingId;
+      }
+
       id = R.id.iv_bell;
       ImageView ivBell = ViewBindings.findChildViewById(rootView, id);
       if (ivBell == null) {
@@ -108,7 +130,7 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       return new ActivityMainBinding((ConstraintLayout) rootView, bottomNavMock, btnSearchFlights,
-          ivBell, ivProfile, tvGreeting);
+          etFromCity, etToCity, ivBell, ivProfile, tvGreeting);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

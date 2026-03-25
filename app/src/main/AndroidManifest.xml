@@ -27,11 +27,9 @@
         <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.FlightResultsActivity" />
         <activity android:name=".activities.SeatSelectorActivity" />
-        <activity android:name=".activities.BookingActivity" />
         <activity android:name=".activities.ConfirmationActivity" />
-        <activity android:name=".activities.CheckInActivity" />
-        <activity android:name=".activities.FlightStatusActivity" />
-        <activity android:name=".activities.AdminDashboardActivity" />
+        <activity android:name=".activities.BookingHistoryActivity" />
+        <activity android:name=".activities.ProfileActivity" />
 
     </application>
 

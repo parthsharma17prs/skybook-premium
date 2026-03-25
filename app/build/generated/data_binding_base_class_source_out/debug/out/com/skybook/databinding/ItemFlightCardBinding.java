@@ -4,12 +4,13 @@ package com.skybook.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import com.google.android.material.card.MaterialCardView;
 import com.skybook.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -17,37 +18,50 @@ import java.lang.String;
 
 public final class ItemFlightCardBinding implements ViewBinding {
   @NonNull
-  private final MaterialCardView rootView;
+  private final CardView rootView;
 
   @NonNull
-  public final TextView tvAirline;
+  public final ImageView ivAirlineLogo;
 
   @NonNull
-  public final TextView tvArrTime;
+  public final TextView tvClassType;
 
   @NonNull
-  public final TextView tvDepTime;
+  public final TextView tvDuration;
 
   @NonNull
-  public final TextView tvFlightNumber;
+  public final TextView tvFromCity;
+
+  @NonNull
+  public final TextView tvFromCode;
 
   @NonNull
   public final TextView tvPrice;
 
-  private ItemFlightCardBinding(@NonNull MaterialCardView rootView, @NonNull TextView tvAirline,
-      @NonNull TextView tvArrTime, @NonNull TextView tvDepTime, @NonNull TextView tvFlightNumber,
-      @NonNull TextView tvPrice) {
+  @NonNull
+  public final TextView tvToCity;
+
+  @NonNull
+  public final TextView tvToCode;
+
+  private ItemFlightCardBinding(@NonNull CardView rootView, @NonNull ImageView ivAirlineLogo,
+      @NonNull TextView tvClassType, @NonNull TextView tvDuration, @NonNull TextView tvFromCity,
+      @NonNull TextView tvFromCode, @NonNull TextView tvPrice, @NonNull TextView tvToCity,
+      @NonNull TextView tvToCode) {
     this.rootView = rootView;
-    this.tvAirline = tvAirline;
-    this.tvArrTime = tvArrTime;
-    this.tvDepTime = tvDepTime;
-    this.tvFlightNumber = tvFlightNumber;
+    this.ivAirlineLogo = ivAirlineLogo;
+    this.tvClassType = tvClassType;
+    this.tvDuration = tvDuration;
+    this.tvFromCity = tvFromCity;
+    this.tvFromCode = tvFromCode;
     this.tvPrice = tvPrice;
+    this.tvToCity = tvToCity;
+    this.tvToCode = tvToCode;
   }
 
   @Override
   @NonNull
-  public MaterialCardView getRoot() {
+  public CardView getRoot() {
     return rootView;
   }
 
@@ -72,27 +86,33 @@ public final class ItemFlightCardBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.tv_airline;
-      TextView tvAirline = ViewBindings.findChildViewById(rootView, id);
-      if (tvAirline == null) {
+      id = R.id.iv_airline_logo;
+      ImageView ivAirlineLogo = ViewBindings.findChildViewById(rootView, id);
+      if (ivAirlineLogo == null) {
         break missingId;
       }
 
-      id = R.id.tv_arr_time;
-      TextView tvArrTime = ViewBindings.findChildViewById(rootView, id);
-      if (tvArrTime == null) {
+      id = R.id.tv_class_type;
+      TextView tvClassType = ViewBindings.findChildViewById(rootView, id);
+      if (tvClassType == null) {
         break missingId;
       }
 
-      id = R.id.tv_dep_time;
-      TextView tvDepTime = ViewBindings.findChildViewById(rootView, id);
-      if (tvDepTime == null) {
+      id = R.id.tv_duration;
+      TextView tvDuration = ViewBindings.findChildViewById(rootView, id);
+      if (tvDuration == null) {
         break missingId;
       }
 
-      id = R.id.tv_flight_number;
-      TextView tvFlightNumber = ViewBindings.findChildViewById(rootView, id);
-      if (tvFlightNumber == null) {
+      id = R.id.tv_from_city;
+      TextView tvFromCity = ViewBindings.findChildViewById(rootView, id);
+      if (tvFromCity == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_from_code;
+      TextView tvFromCode = ViewBindings.findChildViewById(rootView, id);
+      if (tvFromCode == null) {
         break missingId;
       }
 
@@ -102,8 +122,20 @@ public final class ItemFlightCardBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemFlightCardBinding((MaterialCardView) rootView, tvAirline, tvArrTime, tvDepTime,
-          tvFlightNumber, tvPrice);
+      id = R.id.tv_to_city;
+      TextView tvToCity = ViewBindings.findChildViewById(rootView, id);
+      if (tvToCity == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_to_code;
+      TextView tvToCode = ViewBindings.findChildViewById(rootView, id);
+      if (tvToCode == null) {
+        break missingId;
+      }
+
+      return new ItemFlightCardBinding((CardView) rootView, ivAirlineLogo, tvClassType, tvDuration,
+          tvFromCity, tvFromCode, tvPrice, tvToCity, tvToCode);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

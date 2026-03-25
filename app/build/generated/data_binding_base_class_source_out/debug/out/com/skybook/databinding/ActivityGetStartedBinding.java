@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.Guideline;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.skybook.R;
@@ -25,6 +26,12 @@ public final class ActivityGetStartedBinding implements ViewBinding {
   public final FrameLayout btnGetStarted;
 
   @NonNull
+  public final Guideline glV1;
+
+  @NonNull
+  public final Guideline glV2;
+
+  @NonNull
   public final ImageView ivPlane;
 
   @NonNull
@@ -34,10 +41,12 @@ public final class ActivityGetStartedBinding implements ViewBinding {
   public final TextView tvTitle;
 
   private ActivityGetStartedBinding(@NonNull ConstraintLayout rootView,
-      @NonNull FrameLayout btnGetStarted, @NonNull ImageView ivPlane, @NonNull TextView tvSubtitle,
-      @NonNull TextView tvTitle) {
+      @NonNull FrameLayout btnGetStarted, @NonNull Guideline glV1, @NonNull Guideline glV2,
+      @NonNull ImageView ivPlane, @NonNull TextView tvSubtitle, @NonNull TextView tvTitle) {
     this.rootView = rootView;
     this.btnGetStarted = btnGetStarted;
+    this.glV1 = glV1;
+    this.glV2 = glV2;
     this.ivPlane = ivPlane;
     this.tvSubtitle = tvSubtitle;
     this.tvTitle = tvTitle;
@@ -76,6 +85,18 @@ public final class ActivityGetStartedBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.gl_v1;
+      Guideline glV1 = ViewBindings.findChildViewById(rootView, id);
+      if (glV1 == null) {
+        break missingId;
+      }
+
+      id = R.id.gl_v2;
+      Guideline glV2 = ViewBindings.findChildViewById(rootView, id);
+      if (glV2 == null) {
+        break missingId;
+      }
+
       id = R.id.iv_plane;
       ImageView ivPlane = ViewBindings.findChildViewById(rootView, id);
       if (ivPlane == null) {
@@ -94,8 +115,8 @@ public final class ActivityGetStartedBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityGetStartedBinding((ConstraintLayout) rootView, btnGetStarted, ivPlane,
-          tvSubtitle, tvTitle);
+      return new ActivityGetStartedBinding((ConstraintLayout) rootView, btnGetStarted, glV1, glV2,
+          ivPlane, tvSubtitle, tvTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

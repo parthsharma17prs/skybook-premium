@@ -8,8 +8,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.skybook.R;
@@ -25,22 +25,17 @@ public final class ActivityFlightResultsBinding implements ViewBinding {
   public final ImageView btnBack;
 
   @NonNull
-  public final CardView flightCardDelta;
-
-  @NonNull
-  public final CardView flightCardUnited;
-
-  @NonNull
   public final LinearLayout header;
 
+  @NonNull
+  public final RecyclerView rvFlights;
+
   private ActivityFlightResultsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageView btnBack, @NonNull CardView flightCardDelta,
-      @NonNull CardView flightCardUnited, @NonNull LinearLayout header) {
+      @NonNull ImageView btnBack, @NonNull LinearLayout header, @NonNull RecyclerView rvFlights) {
     this.rootView = rootView;
     this.btnBack = btnBack;
-    this.flightCardDelta = flightCardDelta;
-    this.flightCardUnited = flightCardUnited;
     this.header = header;
+    this.rvFlights = rvFlights;
   }
 
   @Override
@@ -76,26 +71,20 @@ public final class ActivityFlightResultsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.flight_card_delta;
-      CardView flightCardDelta = ViewBindings.findChildViewById(rootView, id);
-      if (flightCardDelta == null) {
-        break missingId;
-      }
-
-      id = R.id.flight_card_united;
-      CardView flightCardUnited = ViewBindings.findChildViewById(rootView, id);
-      if (flightCardUnited == null) {
-        break missingId;
-      }
-
       id = R.id.header;
       LinearLayout header = ViewBindings.findChildViewById(rootView, id);
       if (header == null) {
         break missingId;
       }
 
-      return new ActivityFlightResultsBinding((ConstraintLayout) rootView, btnBack, flightCardDelta,
-          flightCardUnited, header);
+      id = R.id.rv_flights;
+      RecyclerView rvFlights = ViewBindings.findChildViewById(rootView, id);
+      if (rvFlights == null) {
+        break missingId;
+      }
+
+      return new ActivityFlightResultsBinding((ConstraintLayout) rootView, btnBack, header,
+          rvFlights);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

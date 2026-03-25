@@ -1,28 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_primary">
+    android:background="@color/bg_deep_purple">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/world"
+        android:scaleType="centerCrop"
+        android:alpha="0.2" />
 
     <ImageView
         android:id="@+id/iv_plane"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/ic_plane"
-        android:tint="@color/white" />
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:src="@drawable/splash_bg"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iv_plane"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:alpha="0"
-        android:text="@string/app_name"
+        android:text="SkyBook"
         android:textColor="@color/white"
-        android:textSize="40sp" />
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/outfit_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_plane" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

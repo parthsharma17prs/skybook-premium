@@ -1,42 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="20dp"
-    app:cardElevation="4dp">
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="8dp"
+    app:cardBackgroundColor="@color/bg_light_purple"
+    app:cardCornerRadius="28dp"
+    app:cardElevation="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
 
-        <TextView
-            android:id="@+id/tv_b_ref"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SKY-ABC123"
-            android:textColor="@color/colorPrimary" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp">
 
-        <TextView
-            android:id="@+id/tv_b_route"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="DEL → BOM"
-            android:textSize="18sp" />
-        
-        <TextView
-            android:id="@+id/tv_b_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/bg_status_badge"
-            android:paddingHorizontal="8dp"
-            android:text="Confirmed"
-            android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_status_badge"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"
+                android:text="CONFIRMED"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/outfit_bold" />
 
+            <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_booking_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="27 June 2024"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="12sp"
+                android:fontFamily="@font/outfit_medium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="24dp">
+
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView android:id="@+id/tv_from_city_h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="JFK" android:textColor="@color/white" android:textSize="20sp" android:textStyle="bold" android:fontFamily="@font/outfit_bold" />
+                <TextView android:id="@+id/tv_seat_h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Seat 2F" android:textColor="@color/accent_pink" android:textSize="12sp" android:fontFamily="@font/outfit_bold" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                 <ImageView android:layout_width="80dp" android:layout_height="20dp" android:src="@drawable/line_airple_blue" android:scaleType="fitCenter" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="end" android:orientation="vertical">
+                <TextView android:id="@+id/tv_to_city_h" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="LAX" android:textColor="@color/white" android:textSize="20sp" android:textStyle="bold" android:fontFamily="@font/outfit_bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Arrived" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-</com.google.android.material.card.MaterialCardView>
+</androidx.cardview.widget.CardView>

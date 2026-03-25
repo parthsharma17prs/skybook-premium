@@ -37,8 +37,10 @@
         <item name="cardBackgroundColor">#3D1E6D</item>
     </style>
 
+    <style name="CircularShapeOverlay" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
     <style name="ShapeAppearance.App.Circle" parent="">
         <item name="cornerSize">50%</item>
     </style>
-    
 </resources>

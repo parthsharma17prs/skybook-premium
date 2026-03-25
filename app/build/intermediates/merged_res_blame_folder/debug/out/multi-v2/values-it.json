@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.skybook.app-mergeDebugResources-49:/values-it/values-it.xml",
+            "outputFile": "com.skybook.app-mergeDebugResources-53:/values-it/values-it.xml",
             "map": [
                 {
                     "source": "/Users/macbook/.gradle/caches/8.14.2/transforms/2b6cd88c57a57e41dfeaabf924a5e84c/transformed/appcompat-1.6.1/res/values-it/values-it.xml",

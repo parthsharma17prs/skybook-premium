@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.skybook.R;
@@ -35,18 +36,31 @@ public final class ActivityChooseSeatsBinding implements ViewBinding {
   public final LinearLayout header;
 
   @NonNull
+  public final ImageView ivBgAirplane;
+
+  @NonNull
+  public final RecyclerView rvSeats;
+
+  @NonNull
   public final TextView tvSeatsInfo;
+
+  @NonNull
+  public final TextView tvTotalPriceSeats;
 
   private ActivityChooseSeatsBinding(@NonNull ConstraintLayout rootView,
       @NonNull LinearLayout bottomActionBarContainer, @NonNull ImageView btnBackSeats,
       @NonNull FrameLayout btnConfirmSeat, @NonNull LinearLayout header,
-      @NonNull TextView tvSeatsInfo) {
+      @NonNull ImageView ivBgAirplane, @NonNull RecyclerView rvSeats, @NonNull TextView tvSeatsInfo,
+      @NonNull TextView tvTotalPriceSeats) {
     this.rootView = rootView;
     this.bottomActionBarContainer = bottomActionBarContainer;
     this.btnBackSeats = btnBackSeats;
     this.btnConfirmSeat = btnConfirmSeat;
     this.header = header;
+    this.ivBgAirplane = ivBgAirplane;
+    this.rvSeats = rvSeats;
     this.tvSeatsInfo = tvSeatsInfo;
+    this.tvTotalPriceSeats = tvTotalPriceSeats;
   }
 
   @Override
@@ -100,14 +114,33 @@ public final class ActivityChooseSeatsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.iv_bg_airplane;
+      ImageView ivBgAirplane = ViewBindings.findChildViewById(rootView, id);
+      if (ivBgAirplane == null) {
+        break missingId;
+      }
+
+      id = R.id.rv_seats;
+      RecyclerView rvSeats = ViewBindings.findChildViewById(rootView, id);
+      if (rvSeats == null) {
+        break missingId;
+      }
+
       id = R.id.tv_seats_info;
       TextView tvSeatsInfo = ViewBindings.findChildViewById(rootView, id);
       if (tvSeatsInfo == null) {
         break missingId;
       }
 
+      id = R.id.tv_total_price_seats;
+      TextView tvTotalPriceSeats = ViewBindings.findChildViewById(rootView, id);
+      if (tvTotalPriceSeats == null) {
+        break missingId;
+      }
+
       return new ActivityChooseSeatsBinding((ConstraintLayout) rootView, bottomActionBarContainer,
-          btnBackSeats, btnConfirmSeat, header, tvSeatsInfo);
+          btnBackSeats, btnConfirmSeat, header, ivBgAirplane, rvSeats, tvSeatsInfo,
+          tvTotalPriceSeats);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

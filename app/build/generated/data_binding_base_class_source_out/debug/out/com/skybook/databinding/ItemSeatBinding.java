@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.TextView;
+import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -20,16 +20,11 @@ public final class ItemSeatBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
-  public final TextView tvSeatNum;
+  public final ImageView ivSeatIcon;
 
-  @NonNull
-  public final View viewSeat;
-
-  private ItemSeatBinding(@NonNull FrameLayout rootView, @NonNull TextView tvSeatNum,
-      @NonNull View viewSeat) {
+  private ItemSeatBinding(@NonNull FrameLayout rootView, @NonNull ImageView ivSeatIcon) {
     this.rootView = rootView;
-    this.tvSeatNum = tvSeatNum;
-    this.viewSeat = viewSeat;
+    this.ivSeatIcon = ivSeatIcon;
   }
 
   @Override
@@ -59,19 +54,13 @@ public final class ItemSeatBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.tv_seat_num;
-      TextView tvSeatNum = ViewBindings.findChildViewById(rootView, id);
-      if (tvSeatNum == null) {
+      id = R.id.iv_seat_icon;
+      ImageView ivSeatIcon = ViewBindings.findChildViewById(rootView, id);
+      if (ivSeatIcon == null) {
         break missingId;
       }
 
-      id = R.id.view_seat;
-      View viewSeat = ViewBindings.findChildViewById(rootView, id);
-      if (viewSeat == null) {
-        break missingId;
-      }
-
-      return new ItemSeatBinding((FrameLayout) rootView, tvSeatNum, viewSeat);
+      return new ItemSeatBinding((FrameLayout) rootView, ivSeatIcon);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

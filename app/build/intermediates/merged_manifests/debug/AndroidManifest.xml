@@ -42,11 +42,9 @@
         <activity android:name="com.skybook.activities.MainActivity" />
         <activity android:name="com.skybook.activities.FlightResultsActivity" />
         <activity android:name="com.skybook.activities.SeatSelectorActivity" />
-        <activity android:name="com.skybook.activities.BookingActivity" />
         <activity android:name="com.skybook.activities.ConfirmationActivity" />
-        <activity android:name="com.skybook.activities.CheckInActivity" />
-        <activity android:name="com.skybook.activities.FlightStatusActivity" />
-        <activity android:name="com.skybook.activities.AdminDashboardActivity" />
+        <activity android:name="com.skybook.activities.BookingHistoryActivity" />
+        <activity android:name="com.skybook.activities.ProfileActivity" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"
@@ -69,6 +67,11 @@
         <uses-library
             android:name="androidx.window.sidecar"
             android:required="false" />
+
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
+            android:exported="false" />
 
         <receiver
             android:name="androidx.profileinstaller.ProfileInstallReceiver"

@@ -4,16 +4,16 @@ package com.skybook.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.card.MaterialCardView;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import com.skybook.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -24,74 +24,51 @@ public final class ActivityAuthBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final MaterialButton btnLogin;
+  public final FrameLayout btnAuthAction;
 
   @NonNull
-  public final TextInputEditText etEmail;
+  public final CardView cvAuth;
 
   @NonNull
-  public final TextInputEditText etFirstName;
+  public final EditText etEmail;
 
   @NonNull
-  public final TextInputEditText etLastName;
+  public final EditText etName;
 
   @NonNull
-  public final TextInputEditText etPassword;
+  public final EditText etPassword;
 
   @NonNull
-  public final TextInputEditText etPhone;
+  public final LinearLayout llTitle;
 
   @NonNull
-  public final MaterialCardView loginCard;
+  public final TextView tvAuthBtn;
 
   @NonNull
-  public final TextInputLayout tilEmail;
+  public final TextView tvAuthSubtitle;
 
   @NonNull
-  public final TextInputLayout tilFirstName;
+  public final TextView tvAuthTitle;
 
   @NonNull
-  public final TextInputLayout tilLastName;
+  public final TextView tvToggleAuth;
 
-  @NonNull
-  public final TextInputLayout tilPhone;
-
-  @NonNull
-  public final TextView tvSubtitle;
-
-  @NonNull
-  public final TextView tvSwitchAuth;
-
-  @NonNull
-  public final TextView tvTitle;
-
-  @NonNull
-  public final View viewHeader;
-
-  private ActivityAuthBinding(@NonNull ConstraintLayout rootView, @NonNull MaterialButton btnLogin,
-      @NonNull TextInputEditText etEmail, @NonNull TextInputEditText etFirstName,
-      @NonNull TextInputEditText etLastName, @NonNull TextInputEditText etPassword,
-      @NonNull TextInputEditText etPhone, @NonNull MaterialCardView loginCard,
-      @NonNull TextInputLayout tilEmail, @NonNull TextInputLayout tilFirstName,
-      @NonNull TextInputLayout tilLastName, @NonNull TextInputLayout tilPhone,
-      @NonNull TextView tvSubtitle, @NonNull TextView tvSwitchAuth, @NonNull TextView tvTitle,
-      @NonNull View viewHeader) {
+  private ActivityAuthBinding(@NonNull ConstraintLayout rootView,
+      @NonNull FrameLayout btnAuthAction, @NonNull CardView cvAuth, @NonNull EditText etEmail,
+      @NonNull EditText etName, @NonNull EditText etPassword, @NonNull LinearLayout llTitle,
+      @NonNull TextView tvAuthBtn, @NonNull TextView tvAuthSubtitle, @NonNull TextView tvAuthTitle,
+      @NonNull TextView tvToggleAuth) {
     this.rootView = rootView;
-    this.btnLogin = btnLogin;
+    this.btnAuthAction = btnAuthAction;
+    this.cvAuth = cvAuth;
     this.etEmail = etEmail;
-    this.etFirstName = etFirstName;
-    this.etLastName = etLastName;
+    this.etName = etName;
     this.etPassword = etPassword;
-    this.etPhone = etPhone;
-    this.loginCard = loginCard;
-    this.tilEmail = tilEmail;
-    this.tilFirstName = tilFirstName;
-    this.tilLastName = tilLastName;
-    this.tilPhone = tilPhone;
-    this.tvSubtitle = tvSubtitle;
-    this.tvSwitchAuth = tvSwitchAuth;
-    this.tvTitle = tvTitle;
-    this.viewHeader = viewHeader;
+    this.llTitle = llTitle;
+    this.tvAuthBtn = tvAuthBtn;
+    this.tvAuthSubtitle = tvAuthSubtitle;
+    this.tvAuthTitle = tvAuthTitle;
+    this.tvToggleAuth = tvToggleAuth;
   }
 
   @Override
@@ -121,99 +98,68 @@ public final class ActivityAuthBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btn_login;
-      MaterialButton btnLogin = ViewBindings.findChildViewById(rootView, id);
-      if (btnLogin == null) {
+      id = R.id.btn_auth_action;
+      FrameLayout btnAuthAction = ViewBindings.findChildViewById(rootView, id);
+      if (btnAuthAction == null) {
+        break missingId;
+      }
+
+      id = R.id.cv_auth;
+      CardView cvAuth = ViewBindings.findChildViewById(rootView, id);
+      if (cvAuth == null) {
         break missingId;
       }
 
       id = R.id.et_email;
-      TextInputEditText etEmail = ViewBindings.findChildViewById(rootView, id);
+      EditText etEmail = ViewBindings.findChildViewById(rootView, id);
       if (etEmail == null) {
         break missingId;
       }
 
-      id = R.id.et_first_name;
-      TextInputEditText etFirstName = ViewBindings.findChildViewById(rootView, id);
-      if (etFirstName == null) {
-        break missingId;
-      }
-
-      id = R.id.et_last_name;
-      TextInputEditText etLastName = ViewBindings.findChildViewById(rootView, id);
-      if (etLastName == null) {
+      id = R.id.et_name;
+      EditText etName = ViewBindings.findChildViewById(rootView, id);
+      if (etName == null) {
         break missingId;
       }
 
       id = R.id.et_password;
-      TextInputEditText etPassword = ViewBindings.findChildViewById(rootView, id);
+      EditText etPassword = ViewBindings.findChildViewById(rootView, id);
       if (etPassword == null) {
         break missingId;
       }
 
-      id = R.id.et_phone;
-      TextInputEditText etPhone = ViewBindings.findChildViewById(rootView, id);
-      if (etPhone == null) {
+      id = R.id.ll_title;
+      LinearLayout llTitle = ViewBindings.findChildViewById(rootView, id);
+      if (llTitle == null) {
         break missingId;
       }
 
-      id = R.id.login_card;
-      MaterialCardView loginCard = ViewBindings.findChildViewById(rootView, id);
-      if (loginCard == null) {
+      id = R.id.tv_auth_btn;
+      TextView tvAuthBtn = ViewBindings.findChildViewById(rootView, id);
+      if (tvAuthBtn == null) {
         break missingId;
       }
 
-      id = R.id.til_email;
-      TextInputLayout tilEmail = ViewBindings.findChildViewById(rootView, id);
-      if (tilEmail == null) {
+      id = R.id.tv_auth_subtitle;
+      TextView tvAuthSubtitle = ViewBindings.findChildViewById(rootView, id);
+      if (tvAuthSubtitle == null) {
         break missingId;
       }
 
-      id = R.id.til_first_name;
-      TextInputLayout tilFirstName = ViewBindings.findChildViewById(rootView, id);
-      if (tilFirstName == null) {
+      id = R.id.tv_auth_title;
+      TextView tvAuthTitle = ViewBindings.findChildViewById(rootView, id);
+      if (tvAuthTitle == null) {
         break missingId;
       }
 
-      id = R.id.til_last_name;
-      TextInputLayout tilLastName = ViewBindings.findChildViewById(rootView, id);
-      if (tilLastName == null) {
+      id = R.id.tv_toggle_auth;
+      TextView tvToggleAuth = ViewBindings.findChildViewById(rootView, id);
+      if (tvToggleAuth == null) {
         break missingId;
       }
 
-      id = R.id.til_phone;
-      TextInputLayout tilPhone = ViewBindings.findChildViewById(rootView, id);
-      if (tilPhone == null) {
-        break missingId;
-      }
-
-      id = R.id.tv_subtitle;
-      TextView tvSubtitle = ViewBindings.findChildViewById(rootView, id);
-      if (tvSubtitle == null) {
-        break missingId;
-      }
-
-      id = R.id.tv_switch_auth;
-      TextView tvSwitchAuth = ViewBindings.findChildViewById(rootView, id);
-      if (tvSwitchAuth == null) {
-        break missingId;
-      }
-
-      id = R.id.tv_title;
-      TextView tvTitle = ViewBindings.findChildViewById(rootView, id);
-      if (tvTitle == null) {
-        break missingId;
-      }
-
-      id = R.id.view_header;
-      View viewHeader = ViewBindings.findChildViewById(rootView, id);
-      if (viewHeader == null) {
-        break missingId;
-      }
-
-      return new ActivityAuthBinding((ConstraintLayout) rootView, btnLogin, etEmail, etFirstName,
-          etLastName, etPassword, etPhone, loginCard, tilEmail, tilFirstName, tilLastName, tilPhone,
-          tvSubtitle, tvSwitchAuth, tvTitle, viewHeader);
+      return new ActivityAuthBinding((ConstraintLayout) rootView, btnAuthAction, cvAuth, etEmail,
+          etName, etPassword, llTitle, tvAuthBtn, tvAuthSubtitle, tvAuthTitle, tvToggleAuth);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

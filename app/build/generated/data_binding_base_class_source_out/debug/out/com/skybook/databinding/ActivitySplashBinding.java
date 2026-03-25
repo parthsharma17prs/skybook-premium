@@ -5,10 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.skybook.R;
@@ -18,19 +18,19 @@ import java.lang.String;
 
 public final class ActivitySplashBinding implements ViewBinding {
   @NonNull
-  private final RelativeLayout rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
   public final ImageView ivPlane;
 
   @NonNull
-  public final RelativeLayout rootLayout;
+  public final ConstraintLayout rootLayout;
 
   @NonNull
   public final TextView tvAppName;
 
-  private ActivitySplashBinding(@NonNull RelativeLayout rootView, @NonNull ImageView ivPlane,
-      @NonNull RelativeLayout rootLayout, @NonNull TextView tvAppName) {
+  private ActivitySplashBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView ivPlane,
+      @NonNull ConstraintLayout rootLayout, @NonNull TextView tvAppName) {
     this.rootView = rootView;
     this.ivPlane = ivPlane;
     this.rootLayout = rootLayout;
@@ -39,7 +39,7 @@ public final class ActivitySplashBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public RelativeLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -70,7 +70,7 @@ public final class ActivitySplashBinding implements ViewBinding {
         break missingId;
       }
 
-      RelativeLayout rootLayout = (RelativeLayout) rootView;
+      ConstraintLayout rootLayout = (ConstraintLayout) rootView;
 
       id = R.id.tv_app_name;
       TextView tvAppName = ViewBindings.findChildViewById(rootView, id);
@@ -78,7 +78,7 @@ public final class ActivitySplashBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivitySplashBinding((RelativeLayout) rootView, ivPlane, rootLayout, tvAppName);
+      return new ActivitySplashBinding((ConstraintLayout) rootView, ivPlane, rootLayout, tvAppName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

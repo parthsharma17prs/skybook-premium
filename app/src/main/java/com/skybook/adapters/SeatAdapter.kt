@@ -1,57 +1,60 @@
 package com.skybook.adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.DiffUtil
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.skybook.R
-import com.skybook.databinding.ItemSeatBinding
-import com.skybook.models.Seat
 
-class SeatAdapter(private val onSeatClick: (Seat) -> Unit) :
-    ListAdapter<Seat, SeatAdapter.SeatViewHolder>(SeatDiffCallback()) {
+class SeatAdapter(
+    private val totalSeats: Int,
+    private val onSeatSelected: (Int, Boolean) -> Unit
+) : RecyclerView.Adapter<SeatAdapter.SeatViewHolder>() {
 
-    private var selectedSeat: String? = null
+    private val selectedSeats = mutableSetOf<Int>()
+    private val takenSeats = (0 until totalSeats).filter { it % 7 == 0 || it % 11 == 0 }.toSet()
+
+    class SeatViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val ivSeat: ImageView = view.findViewById(R.id.iv_seat_icon)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SeatViewHolder {
-        val binding = ItemSeatBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return SeatViewHolder(binding)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_seat, parent, false)
+        return SeatViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: SeatViewHolder, position: Int) {
-        holder.bind(getItem(position))
-    }
+        val isTaken = takenSeats.contains(position)
+        val isSelected = selectedSeats.contains(position)
 
-    inner class SeatViewHolder(private val binding: ItemSeatBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(seat: Seat) {
-            binding.tvSeatNum.text = seat.seatNumber
-            
-            val bg = when {
-                seat.seatNumber == selectedSeat -> R.drawable.bg_seat_selected
-                !seat.isAvailable || seat.isLocked -> R.drawable.bg_seat_booked
-                else -> R.drawable.bg_seat_available
+        when {
+            isTaken -> {
+                holder.ivSeat.setColorFilter(Color.parseColor("#4D555555"), android.graphics.PorterDuff.Mode.SRC_IN)
+                holder.itemView.setOnClickListener(null)
             }
-            binding.viewSeat.setBackgroundResource(bg)
-
-            binding.root.setOnClickListener {
-                if (seat.isAvailable && !seat.isLocked) {
-                    val oldSelected = selectedSeat
-                    selectedSeat = seat.seatNumber
-                    // Bounce animation
-                    binding.root.animate().scaleX(1.2f).scaleY(1.2f).setDuration(100).withEndAction {
-                        binding.root.animate().scaleX(1.0f).scaleY(1.0f).setDuration(100).start()
-                    }.start()
-                    
-                    onSeatClick(seat)
-                    notifyDataSetChanged() // Simplified
-                }
+            isSelected -> {
+                holder.ivSeat.setColorFilter(Color.parseColor("#EC4899"), android.graphics.PorterDuff.Mode.SRC_IN) // Magenta for selected
+                holder.itemView.setOnClickListener { toggleSelection(position) }
+            }
+            else -> {
+                holder.ivSeat.setColorFilter(Color.parseColor("#00FF00"), android.graphics.PorterDuff.Mode.SRC_IN) // Green for available
+                holder.itemView.setOnClickListener { toggleSelection(position) }
             }
         }
     }
 
-    class SeatDiffCallback : DiffUtil.ItemCallback<Seat>() {
-        override fun areItemsTheSame(oldItem: Seat, newItem: Seat) = oldItem.seatNumber == newItem.seatNumber
-        override fun areContentsTheSame(oldItem: Seat, newItem: Seat) = oldItem == newItem
+    private fun toggleSelection(pos: Int) {
+        if (selectedSeats.contains(pos)) {
+            selectedSeats.remove(pos)
+            onSeatSelected(selectedSeats.size, false)
+        } else {
+            selectedSeats.add(pos)
+            onSeatSelected(selectedSeats.size, true)
+        }
+        notifyItemChanged(pos)
     }
+
+    override fun getItemCount() = totalSeats
 }

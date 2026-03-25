@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import com.google.android.material.card.MaterialCardView;
 import com.skybook.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -17,28 +17,37 @@ import java.lang.String;
 
 public final class ItemBookingCardBinding implements ViewBinding {
   @NonNull
-  private final MaterialCardView rootView;
+  private final CardView rootView;
 
   @NonNull
-  public final TextView tvBRef;
+  public final TextView tvBookingDate;
 
   @NonNull
-  public final TextView tvBRoute;
+  public final TextView tvFromCityH;
 
   @NonNull
-  public final TextView tvBStatus;
+  public final TextView tvSeatH;
 
-  private ItemBookingCardBinding(@NonNull MaterialCardView rootView, @NonNull TextView tvBRef,
-      @NonNull TextView tvBRoute, @NonNull TextView tvBStatus) {
+  @NonNull
+  public final TextView tvStatus;
+
+  @NonNull
+  public final TextView tvToCityH;
+
+  private ItemBookingCardBinding(@NonNull CardView rootView, @NonNull TextView tvBookingDate,
+      @NonNull TextView tvFromCityH, @NonNull TextView tvSeatH, @NonNull TextView tvStatus,
+      @NonNull TextView tvToCityH) {
     this.rootView = rootView;
-    this.tvBRef = tvBRef;
-    this.tvBRoute = tvBRoute;
-    this.tvBStatus = tvBStatus;
+    this.tvBookingDate = tvBookingDate;
+    this.tvFromCityH = tvFromCityH;
+    this.tvSeatH = tvSeatH;
+    this.tvStatus = tvStatus;
+    this.tvToCityH = tvToCityH;
   }
 
   @Override
   @NonNull
-  public MaterialCardView getRoot() {
+  public CardView getRoot() {
     return rootView;
   }
 
@@ -63,25 +72,38 @@ public final class ItemBookingCardBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.tv_b_ref;
-      TextView tvBRef = ViewBindings.findChildViewById(rootView, id);
-      if (tvBRef == null) {
+      id = R.id.tv_booking_date;
+      TextView tvBookingDate = ViewBindings.findChildViewById(rootView, id);
+      if (tvBookingDate == null) {
         break missingId;
       }
 
-      id = R.id.tv_b_route;
-      TextView tvBRoute = ViewBindings.findChildViewById(rootView, id);
-      if (tvBRoute == null) {
+      id = R.id.tv_from_city_h;
+      TextView tvFromCityH = ViewBindings.findChildViewById(rootView, id);
+      if (tvFromCityH == null) {
         break missingId;
       }
 
-      id = R.id.tv_b_status;
-      TextView tvBStatus = ViewBindings.findChildViewById(rootView, id);
-      if (tvBStatus == null) {
+      id = R.id.tv_seat_h;
+      TextView tvSeatH = ViewBindings.findChildViewById(rootView, id);
+      if (tvSeatH == null) {
         break missingId;
       }
 
-      return new ItemBookingCardBinding((MaterialCardView) rootView, tvBRef, tvBRoute, tvBStatus);
+      id = R.id.tv_status;
+      TextView tvStatus = ViewBindings.findChildViewById(rootView, id);
+      if (tvStatus == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_to_city_h;
+      TextView tvToCityH = ViewBindings.findChildViewById(rootView, id);
+      if (tvToCityH == null) {
+        break missingId;
+      }
+
+      return new ItemBookingCardBinding((CardView) rootView, tvBookingDate, tvFromCityH, tvSeatH,
+          tvStatus, tvToCityH);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
