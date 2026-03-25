@@ -531,76 +531,77 @@ public final class AppDao_Impl implements AppDao {
   @Override
   public Object getUserBookings(final int userId,
       final Continuation<? super List<BookingWithFlight>> $completion) {
-    final String _sql = "\n"
-            + "        SELECT * FROM bookings \n"
-            + "        JOIN flights ON bookings.flightId = flights.id \n"
-            + "        WHERE userId = ? \n"
-            + "        ORDER BY bookingDate DESC\n"
-            + "    ";
+    final String _sql = "SELECT * FROM bookings WHERE userId = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
     _statement.bindLong(_argIndex, userId);
     final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
-    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<BookingWithFlight>>() {
+    return CoroutinesRoom.execute(__db, true, _cancellationSignal, new Callable<List<BookingWithFlight>>() {
       @Override
       @NonNull
       public List<BookingWithFlight> call() throws Exception {
-        final Cursor _cursor = DBUtil.query(__db, _statement, true, null);
+        __db.beginTransaction();
         try {
-          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
-          final int _cursorIndexOfUserId = CursorUtil.getColumnIndexOrThrow(_cursor, "userId");
-          final int _cursorIndexOfFlightId = CursorUtil.getColumnIndexOrThrow(_cursor, "flightId");
-          final int _cursorIndexOfSeatNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "seatNumber");
-          final int _cursorIndexOfBookingDate = CursorUtil.getColumnIndexOrThrow(_cursor, "bookingDate");
-          final int _cursorIndexOfStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "status");
-          final LongSparseArray<FlightEntity> _collectionFlight = new LongSparseArray<FlightEntity>();
-          while (_cursor.moveToNext()) {
-            final long _tmpKey;
-            _tmpKey = _cursor.getLong(_cursorIndexOfFlightId);
-            _collectionFlight.put(_tmpKey, null);
+          final Cursor _cursor = DBUtil.query(__db, _statement, true, null);
+          try {
+            final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+            final int _cursorIndexOfUserId = CursorUtil.getColumnIndexOrThrow(_cursor, "userId");
+            final int _cursorIndexOfFlightId = CursorUtil.getColumnIndexOrThrow(_cursor, "flightId");
+            final int _cursorIndexOfSeatNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "seatNumber");
+            final int _cursorIndexOfBookingDate = CursorUtil.getColumnIndexOrThrow(_cursor, "bookingDate");
+            final int _cursorIndexOfStatus = CursorUtil.getColumnIndexOrThrow(_cursor, "status");
+            final LongSparseArray<FlightEntity> _collectionFlight = new LongSparseArray<FlightEntity>();
+            while (_cursor.moveToNext()) {
+              final long _tmpKey;
+              _tmpKey = _cursor.getLong(_cursorIndexOfFlightId);
+              _collectionFlight.put(_tmpKey, null);
+            }
+            _cursor.moveToPosition(-1);
+            __fetchRelationshipflightsAscomSkybookLocalFlightEntity(_collectionFlight);
+            final List<BookingWithFlight> _result = new ArrayList<BookingWithFlight>(_cursor.getCount());
+            while (_cursor.moveToNext()) {
+              final BookingWithFlight _item;
+              final BookingEntity _tmpBooking;
+              final int _tmpId;
+              _tmpId = _cursor.getInt(_cursorIndexOfId);
+              final int _tmpUserId;
+              _tmpUserId = _cursor.getInt(_cursorIndexOfUserId);
+              final int _tmpFlightId;
+              _tmpFlightId = _cursor.getInt(_cursorIndexOfFlightId);
+              final String _tmpSeatNumber;
+              if (_cursor.isNull(_cursorIndexOfSeatNumber)) {
+                _tmpSeatNumber = null;
+              } else {
+                _tmpSeatNumber = _cursor.getString(_cursorIndexOfSeatNumber);
+              }
+              final String _tmpBookingDate;
+              if (_cursor.isNull(_cursorIndexOfBookingDate)) {
+                _tmpBookingDate = null;
+              } else {
+                _tmpBookingDate = _cursor.getString(_cursorIndexOfBookingDate);
+              }
+              final String _tmpStatus;
+              if (_cursor.isNull(_cursorIndexOfStatus)) {
+                _tmpStatus = null;
+              } else {
+                _tmpStatus = _cursor.getString(_cursorIndexOfStatus);
+              }
+              _tmpBooking = new BookingEntity(_tmpId,_tmpUserId,_tmpFlightId,_tmpSeatNumber,_tmpBookingDate,_tmpStatus);
+              final FlightEntity _tmpFlight;
+              final long _tmpKey_1;
+              _tmpKey_1 = _cursor.getLong(_cursorIndexOfFlightId);
+              _tmpFlight = _collectionFlight.get(_tmpKey_1);
+              _item = new BookingWithFlight(_tmpBooking,_tmpFlight);
+              _result.add(_item);
+            }
+            __db.setTransactionSuccessful();
+            return _result;
+          } finally {
+            _cursor.close();
+            _statement.release();
           }
-          _cursor.moveToPosition(-1);
-          __fetchRelationshipflightsAscomSkybookLocalFlightEntity(_collectionFlight);
-          final List<BookingWithFlight> _result = new ArrayList<BookingWithFlight>(_cursor.getCount());
-          while (_cursor.moveToNext()) {
-            final BookingWithFlight _item;
-            final BookingEntity _tmpBooking;
-            final int _tmpId;
-            _tmpId = _cursor.getInt(_cursorIndexOfId);
-            final int _tmpUserId;
-            _tmpUserId = _cursor.getInt(_cursorIndexOfUserId);
-            final int _tmpFlightId;
-            _tmpFlightId = _cursor.getInt(_cursorIndexOfFlightId);
-            final String _tmpSeatNumber;
-            if (_cursor.isNull(_cursorIndexOfSeatNumber)) {
-              _tmpSeatNumber = null;
-            } else {
-              _tmpSeatNumber = _cursor.getString(_cursorIndexOfSeatNumber);
-            }
-            final String _tmpBookingDate;
-            if (_cursor.isNull(_cursorIndexOfBookingDate)) {
-              _tmpBookingDate = null;
-            } else {
-              _tmpBookingDate = _cursor.getString(_cursorIndexOfBookingDate);
-            }
-            final String _tmpStatus;
-            if (_cursor.isNull(_cursorIndexOfStatus)) {
-              _tmpStatus = null;
-            } else {
-              _tmpStatus = _cursor.getString(_cursorIndexOfStatus);
-            }
-            _tmpBooking = new BookingEntity(_tmpId,_tmpUserId,_tmpFlightId,_tmpSeatNumber,_tmpBookingDate,_tmpStatus);
-            final FlightEntity _tmpFlight;
-            final long _tmpKey_1;
-            _tmpKey_1 = _cursor.getLong(_cursorIndexOfFlightId);
-            _tmpFlight = _collectionFlight.get(_tmpKey_1);
-            _item = new BookingWithFlight(_tmpBooking,_tmpFlight);
-            _result.add(_item);
-          }
-          return _result;
         } finally {
-          _cursor.close();
-          _statement.release();
+          __db.endTransaction();
         }
       }
     }, $completion);

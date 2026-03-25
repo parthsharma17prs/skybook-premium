@@ -29,12 +29,8 @@ interface AppDao {
     @Insert
     suspend fun bookTicket(booking: BookingEntity): Long
 
-    @Query("""
-        SELECT * FROM bookings 
-        JOIN flights ON bookings.flightId = flights.id 
-        WHERE userId = :userId 
-        ORDER BY bookingDate DESC
-    """)
+    @Transaction
+    @Query("SELECT * FROM bookings WHERE userId = :userId")
     suspend fun getUserBookings(userId: Int): List<BookingWithFlight>
 
     @Query("UPDATE bookings SET status = :status WHERE id = :bookingId")
@@ -64,7 +60,7 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "skybook_db"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 instance
             }

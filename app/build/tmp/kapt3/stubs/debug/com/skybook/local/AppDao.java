@@ -46,7 +46,8 @@ public abstract interface AppDao {
     com.skybook.local.BookingEntity booking, @org.jetbrains.annotations.NotNull()
     kotlin.coroutines.Continuation<? super java.lang.Long> $completion);
     
-    @androidx.room.Query(value = "\n        SELECT * FROM bookings \n        JOIN flights ON bookings.flightId = flights.id \n        WHERE userId = :userId \n        ORDER BY bookingDate DESC\n    ")
+    @androidx.room.Transaction()
+    @androidx.room.Query(value = "SELECT * FROM bookings WHERE userId = :userId")
     @org.jetbrains.annotations.Nullable()
     public abstract java.lang.Object getUserBookings(int userId, @org.jetbrains.annotations.NotNull()
     kotlin.coroutines.Continuation<? super java.util.List<com.skybook.local.BookingWithFlight>> $completion);
