@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Video Theme Colors -->
+    <!-- Deep purple background -->
+    <color name="bg_deep_purple">#261046</color>
+    <color name="bg_light_purple">#3D1E6D</color>
+    
+    <!-- Accents -->
+    <color name="accent_yellow">#FFC107</color>
+    <color name="accent_pink">#E91E63</color>
+    
+    <!-- Old Colors replaced/mapped safely -->
+    <color name="colorPrimary">#261046</color>
+    <color name="colorPrimaryDark">#140727</color>
+    <color name="colorAccent">#FFC107</color>
+    
+    <!-- Text Colors -->
+    <color name="colorTextPrimary">#FFFFFF</color>
+    <color name="colorTextSecondary">#B3B3B3</color>
+    
+    <color name="colorDivider">#3D1E6D</color>
+    <color name="shimmer_base">#3D1E6D</color>
+    <color name="shimmer_highlight">#4A2580</color>
+    
+    <color name="moodIndigo">#3D1E6D</color>
+    <color name="moodGreen">#FFC107</color>
+    
+    <color name="colorSuccess">#4CAF50</color>
+    <color name="colorError">#F44336</color>
+    <color name="transparent">#00000000</color>
+    
+    <!-- Fallbacks for compilation -->
+    <color name="premiumGradientStart">#3D1E6D</color>
+    <color name="premiumGradientEnd">#261046</color>
+    <color name="gradientStart">#3D1E6D</color>
+    <color name="gradientMid">#261046</color>
+    <color name="gradientEnd">#261046</color>
+    <color name="colorBackground">#261046</color>
+    <color name="gray_light">#3D1E6D</color>
+</resources>
