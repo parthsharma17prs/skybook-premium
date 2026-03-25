@@ -5,6 +5,15 @@
     android:layout_height="match_parent"
     android:background="@color/bg_deep_purple">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/world"
+        android:scaleType="centerCrop"
+        android:alpha="0.2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
     <!-- Header -->
     <LinearLayout
         android:id="@+id/header"
@@ -16,9 +25,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@android:drawable/ic_media_previous"
+            android:id="@+id/btn_back_confirm"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="8dp"
+            android:src="@drawable/back"
             app:tint="@color/white" />
 
         <TextView
@@ -27,16 +38,17 @@
             android:layout_marginStart="16dp"
             android:text="Ticket Details"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/outfit_bold" />
     </LinearLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:paddingHorizontal="24dp"
-        android:paddingBottom="24dp"
+        android:paddingBottom="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header">
 
@@ -45,131 +57,132 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Ticket Card (Mimicking White Ticket with QR) -->
+            <!-- Ticket Card Overlay -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:cardBackgroundColor="@color/bg_light_purple"
-                app:cardCornerRadius="24dp"
+                app:cardCornerRadius="32dp"
                 app:cardElevation="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingTop="32dp">
 
                     <ImageView
-                        android:layout_width="120dp"
-                        android:layout_height="40dp"
+                        android:layout_width="140dp"
+                        android:layout_height="48dp"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="24dp"
-                        android:src="@drawable/american_airline"
+                        android:src="@drawable/delta_airline"
                         android:scaleType="fitCenter" />
 
-                    <!-- Route -->
+                    <!-- Route Section -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginTop="32dp"
                         android:orientation="horizontal"
-                        android:paddingHorizontal="24dp">
+                        android:paddingHorizontal="32dp">
+
                         <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="NewYork" android:textColor="@color/colorTextSecondary" android:textSize="12sp" />
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="JFK" android:textColor="@color/white" android:textSize="20sp" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="New York" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="JFK" android:textColor="@color/white" android:textSize="22sp" android:textStyle="bold" android:fontFamily="@font/outfit_bold" />
                         </LinearLayout>
+
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2h 45m" android:textColor="@color/colorTextSecondary" android:textSize="12sp" />
-                            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
-                                <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:background="@color/colorTextSecondary" />
-                                <ImageView android:layout_width="24dp" android:layout_height="24dp" android:layout_marginHorizontal="8dp" android:src="@drawable/ic_plane" app:tint="@color/accent_pink" />
-                                <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1" android:background="@color/colorTextSecondary" />
-                            </LinearLayout>
+                             <ImageView android:layout_width="100dp" android:layout_height="24dp" android:src="@drawable/line_airple_blue" android:scaleType="fitCenter" />
+                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="2h 45m" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium" />
                         </LinearLayout>
+
                         <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="end" android:orientation="vertical">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="LosAngles" android:textColor="@color/colorTextSecondary" android:textSize="12sp" />
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="LAX" android:textColor="@color/white" android:textSize="20sp" android:textStyle="bold" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Los Angeles" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="LAX" android:textColor="@color/white" android:textSize="22sp" android:textStyle="bold" android:fontFamily="@font/outfit_bold" />
                         </LinearLayout>
                     </LinearLayout>
 
-                    <LinearLayout
+                    <!-- Info Grid -->
+                    <GridLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="24dp">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Date\n27 June 2024" android:textColor="@color/colorTextSecondary" android:textSize="14sp" />
-                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Time\n10:45 - 16:30" android:textColor="@color/colorTextSecondary" android:textSize="14sp" android:gravity="end" />
-                    </LinearLayout>
+                        android:layout_marginTop="32dp"
+                        android:columnCount="2"
+                        android:paddingHorizontal="32dp">
 
-                    <!-- Ticket Perforation Line -->
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginVertical="24dp"
-                        android:background="@drawable/bg_dash_line"
-                        android:layerType="software" />
-
-                    <!-- Details & Barcode -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="24dp">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Class\nBusiness" android:textColor="@color/colorTextSecondary" android:textSize="14sp" />
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Seats\nE1, A5, A6" android:textColor="@color/colorTextSecondary" android:textSize="14sp" />
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical" android:layout_marginBottom="24dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Passenger" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Alex Johnson" android:textColor="@color/white" android:textSize="16sp" android:fontFamily="@font/outfit_bold"/>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Airlines\nAmericanAirlines" android:textColor="@color/colorTextSecondary" android:textSize="14sp" />
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Price\n$380.00" android:textColor="@color/accent_pink" android:textSize="14sp" android:textStyle="bold" />
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical" android:gravity="end" android:layout_marginBottom="24dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Date" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="27 June 2024" android:textColor="@color/white" android:textSize="16sp" android:fontFamily="@font/outfit_bold"/>
                         </LinearLayout>
 
-                        <!-- QR Code Placeholder -->
-                        <ImageView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:background="@color/colorTextSecondary"
-                            android:src="@drawable/ic_history" />
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Class" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Business" android:textColor="@color/white" android:textSize="16sp" android:fontFamily="@font/outfit_bold"/>
+                        </LinearLayout>
 
-                    </LinearLayout>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical" android:gravity="end">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Flight No" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AR-524" android:textColor="@color/white" android:textSize="16sp" android:fontFamily="@font/outfit_bold"/>
+                        </LinearLayout>
 
-                    <!-- Barcode Image Placeholder -->
+                    </GridLayout>
+
+                    <!-- Dash Perforation Line from repo -->
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginHorizontal="24dp"
-                        android:background="@color/colorTextSecondary" />
-                        
-                     <TextView
+                        android:layout_height="32dp"
+                        android:layout_marginTop="24dp"
+                        android:src="@drawable/dash_line"
+                        android:scaleType="fitXY" />
+
+                    <!-- Bottom Barcode Section -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="24dp"
-                        android:text="321654687"
-                        android:textColor="@color/colorTextSecondary"
-                        android:textAlignment="center"
-                        android:textSize="12sp" />
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingVertical="32dp">
+
+                        <ImageView
+                            android:layout_width="160dp"
+                            android:layout_height="160dp"
+                            android:src="@drawable/qrcode"
+                            android:padding="8dp" />
+
+                        <ImageView
+                            android:layout_width="240dp"
+                            android:layout_height="60dp"
+                            android:layout_marginTop="24dp"
+                            android:src="@drawable/barcode"
+                            android:scaleType="fitCenter" />
+                            
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="321654687"
+                            android:textColor="@color/colorTextSecondary"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/outfit_medium" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Action Button -->
             <FrameLayout
-                android:id="@+id/btn_download_ticket"
+                android:id="@+id/btn_book_flight"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="32dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="60dp"
                 android:background="@drawable/bg_search_btn"
                 android:clickable="true"
                 android:focusable="true">
@@ -181,10 +194,11 @@
                     android:text="Download Ticket"
                     android:textColor="@color/white"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/outfit_bold" />
             </FrameLayout>
-            
+
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

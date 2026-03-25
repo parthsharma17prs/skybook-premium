@@ -28,6 +28,10 @@
         "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-53:/layout/activity_admin_dashboard.xml"
     },
     {
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-50:/layout/activity_choose_seats.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-53:/layout/activity_choose_seats.xml"
+    },
+    {
         "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-50:/layout/activity_flight_status.xml",
         "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-53:/layout/activity_flight_status.xml"
     },
@@ -48,6 +52,10 @@
         "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-53:/layout/activity_seat_selector.xml"
     },
     {
+        "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-50:/layout/activity_ticket_details.xml",
+        "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-53:/layout/activity_ticket_details.xml"
+    },
+    {
         "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-50:/layout/item_booking_card.xml",
         "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-53:/layout/item_booking_card.xml"
     },
@@ -66,6 +74,10 @@
     {
         "merged": "com.skybook.app-mergeDebugResources-50:/layout/activity_choose_seats.xml",
         "source": "com.skybook.app-main-53:/layout/activity_choose_seats.xml"
+    },
+    {
+        "merged": "com.skybook.app-mergeDebugResources-50:/layout/activity_main.xml",
+        "source": "com.skybook.app-main-53:/layout/activity_main.xml"
     },
     {
         "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-mergeDebugResources-50:/layout/item_seat.xml",

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -22,7 +23,10 @@ public final class ActivityChooseSeatsBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final ConstraintLayout bottomBar;
+  public final LinearLayout bottomActionBarContainer;
+
+  @NonNull
+  public final ImageView btnBackSeats;
 
   @NonNull
   public final FrameLayout btnConfirmSeat;
@@ -31,21 +35,18 @@ public final class ActivityChooseSeatsBinding implements ViewBinding {
   public final LinearLayout header;
 
   @NonNull
-  public final LinearLayout llLegend;
-
-  @NonNull
-  public final TextView tvSeatsSelected;
+  public final TextView tvSeatsInfo;
 
   private ActivityChooseSeatsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ConstraintLayout bottomBar, @NonNull FrameLayout btnConfirmSeat,
-      @NonNull LinearLayout header, @NonNull LinearLayout llLegend,
-      @NonNull TextView tvSeatsSelected) {
+      @NonNull LinearLayout bottomActionBarContainer, @NonNull ImageView btnBackSeats,
+      @NonNull FrameLayout btnConfirmSeat, @NonNull LinearLayout header,
+      @NonNull TextView tvSeatsInfo) {
     this.rootView = rootView;
-    this.bottomBar = bottomBar;
+    this.bottomActionBarContainer = bottomActionBarContainer;
+    this.btnBackSeats = btnBackSeats;
     this.btnConfirmSeat = btnConfirmSeat;
     this.header = header;
-    this.llLegend = llLegend;
-    this.tvSeatsSelected = tvSeatsSelected;
+    this.tvSeatsInfo = tvSeatsInfo;
   }
 
   @Override
@@ -75,9 +76,15 @@ public final class ActivityChooseSeatsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.bottom_bar;
-      ConstraintLayout bottomBar = ViewBindings.findChildViewById(rootView, id);
-      if (bottomBar == null) {
+      id = R.id.bottom_action_bar_container;
+      LinearLayout bottomActionBarContainer = ViewBindings.findChildViewById(rootView, id);
+      if (bottomActionBarContainer == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_back_seats;
+      ImageView btnBackSeats = ViewBindings.findChildViewById(rootView, id);
+      if (btnBackSeats == null) {
         break missingId;
       }
 
@@ -93,20 +100,14 @@ public final class ActivityChooseSeatsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.ll_legend;
-      LinearLayout llLegend = ViewBindings.findChildViewById(rootView, id);
-      if (llLegend == null) {
+      id = R.id.tv_seats_info;
+      TextView tvSeatsInfo = ViewBindings.findChildViewById(rootView, id);
+      if (tvSeatsInfo == null) {
         break missingId;
       }
 
-      id = R.id.tv_seats_selected;
-      TextView tvSeatsSelected = ViewBindings.findChildViewById(rootView, id);
-      if (tvSeatsSelected == null) {
-        break missingId;
-      }
-
-      return new ActivityChooseSeatsBinding((ConstraintLayout) rootView, bottomBar, btnConfirmSeat,
-          header, llLegend, tvSeatsSelected);
+      return new ActivityChooseSeatsBinding((ConstraintLayout) rootView, bottomActionBarContainer,
+          btnBackSeats, btnConfirmSeat, header, tvSeatsInfo);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

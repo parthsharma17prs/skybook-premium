@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,15 +22,20 @@ public final class ActivityTicketDetailsBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final FrameLayout btnDownloadTicket;
+  public final ImageView btnBackConfirm;
+
+  @NonNull
+  public final FrameLayout btnBookFlight;
 
   @NonNull
   public final LinearLayout header;
 
   private ActivityTicketDetailsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull FrameLayout btnDownloadTicket, @NonNull LinearLayout header) {
+      @NonNull ImageView btnBackConfirm, @NonNull FrameLayout btnBookFlight,
+      @NonNull LinearLayout header) {
     this.rootView = rootView;
-    this.btnDownloadTicket = btnDownloadTicket;
+    this.btnBackConfirm = btnBackConfirm;
+    this.btnBookFlight = btnBookFlight;
     this.header = header;
   }
 
@@ -60,9 +66,15 @@ public final class ActivityTicketDetailsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btn_download_ticket;
-      FrameLayout btnDownloadTicket = ViewBindings.findChildViewById(rootView, id);
-      if (btnDownloadTicket == null) {
+      id = R.id.btn_back_confirm;
+      ImageView btnBackConfirm = ViewBindings.findChildViewById(rootView, id);
+      if (btnBackConfirm == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_book_flight;
+      FrameLayout btnBookFlight = ViewBindings.findChildViewById(rootView, id);
+      if (btnBookFlight == null) {
         break missingId;
       }
 
@@ -72,8 +84,8 @@ public final class ActivityTicketDetailsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityTicketDetailsBinding((ConstraintLayout) rootView, btnDownloadTicket,
-          header);
+      return new ActivityTicketDetailsBinding((ConstraintLayout) rootView, btnBackConfirm,
+          btnBookFlight, header);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

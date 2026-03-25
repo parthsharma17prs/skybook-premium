@@ -2,8 +2,9 @@ package com.skybook.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.LinearLayout
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import com.skybook.R
 
 class FlightResultsActivity : AppCompatActivity() {
@@ -11,11 +12,15 @@ class FlightResultsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flight_results)
 
-        findViewById<LinearLayout>(R.id.flight_card_delta).setOnClickListener {
+        findViewById<ImageView>(R.id.btn_back).setOnClickListener {
+            onBackPressed()
+        }
+
+        findViewById<CardView>(R.id.flight_card_delta).setOnClickListener {
             startActivity(Intent(this, SeatSelectorActivity::class.java))
         }
 
-        findViewById<LinearLayout>(R.id.flight_card_southwest).setOnClickListener {
+        findViewById<CardView>(R.id.flight_card_united).setOnClickListener {
             startActivity(Intent(this, SeatSelectorActivity::class.java))
         }
     }

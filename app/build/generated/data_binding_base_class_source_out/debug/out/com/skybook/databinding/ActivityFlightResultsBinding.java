@@ -4,9 +4,11 @@ package com.skybook.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -20,20 +22,24 @@ public final class ActivityFlightResultsBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final LinearLayout flightCardDelta;
+  public final ImageView btnBack;
 
   @NonNull
-  public final LinearLayout flightCardSouthwest;
+  public final CardView flightCardDelta;
+
+  @NonNull
+  public final CardView flightCardUnited;
 
   @NonNull
   public final LinearLayout header;
 
   private ActivityFlightResultsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull LinearLayout flightCardDelta, @NonNull LinearLayout flightCardSouthwest,
-      @NonNull LinearLayout header) {
+      @NonNull ImageView btnBack, @NonNull CardView flightCardDelta,
+      @NonNull CardView flightCardUnited, @NonNull LinearLayout header) {
     this.rootView = rootView;
+    this.btnBack = btnBack;
     this.flightCardDelta = flightCardDelta;
-    this.flightCardSouthwest = flightCardSouthwest;
+    this.flightCardUnited = flightCardUnited;
     this.header = header;
   }
 
@@ -64,15 +70,21 @@ public final class ActivityFlightResultsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btn_back;
+      ImageView btnBack = ViewBindings.findChildViewById(rootView, id);
+      if (btnBack == null) {
+        break missingId;
+      }
+
       id = R.id.flight_card_delta;
-      LinearLayout flightCardDelta = ViewBindings.findChildViewById(rootView, id);
+      CardView flightCardDelta = ViewBindings.findChildViewById(rootView, id);
       if (flightCardDelta == null) {
         break missingId;
       }
 
-      id = R.id.flight_card_southwest;
-      LinearLayout flightCardSouthwest = ViewBindings.findChildViewById(rootView, id);
-      if (flightCardSouthwest == null) {
+      id = R.id.flight_card_united;
+      CardView flightCardUnited = ViewBindings.findChildViewById(rootView, id);
+      if (flightCardUnited == null) {
         break missingId;
       }
 
@@ -82,8 +94,8 @@ public final class ActivityFlightResultsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityFlightResultsBinding((ConstraintLayout) rootView, flightCardDelta,
-          flightCardSouthwest, header);
+      return new ActivityFlightResultsBinding((ConstraintLayout) rootView, btnBack, flightCardDelta,
+          flightCardUnited, header);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

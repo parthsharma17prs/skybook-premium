@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -23,25 +24,30 @@ public final class ActivityMainBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final LinearLayout bottomNav;
+  public final LinearLayout bottomNavMock;
 
   @NonNull
   public final FrameLayout btnSearchFlights;
 
   @NonNull
+  public final ImageView ivBell;
+
+  @NonNull
   public final ShapeableImageView ivProfile;
 
   @NonNull
-  public final TextView tvUsername;
+  public final TextView tvGreeting;
 
-  private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull LinearLayout bottomNav,
-      @NonNull FrameLayout btnSearchFlights, @NonNull ShapeableImageView ivProfile,
-      @NonNull TextView tvUsername) {
+  private ActivityMainBinding(@NonNull ConstraintLayout rootView,
+      @NonNull LinearLayout bottomNavMock, @NonNull FrameLayout btnSearchFlights,
+      @NonNull ImageView ivBell, @NonNull ShapeableImageView ivProfile,
+      @NonNull TextView tvGreeting) {
     this.rootView = rootView;
-    this.bottomNav = bottomNav;
+    this.bottomNavMock = bottomNavMock;
     this.btnSearchFlights = btnSearchFlights;
+    this.ivBell = ivBell;
     this.ivProfile = ivProfile;
-    this.tvUsername = tvUsername;
+    this.tvGreeting = tvGreeting;
   }
 
   @Override
@@ -71,9 +77,9 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.bottom_nav;
-      LinearLayout bottomNav = ViewBindings.findChildViewById(rootView, id);
-      if (bottomNav == null) {
+      id = R.id.bottom_nav_mock;
+      LinearLayout bottomNavMock = ViewBindings.findChildViewById(rootView, id);
+      if (bottomNavMock == null) {
         break missingId;
       }
 
@@ -83,20 +89,26 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.iv_bell;
+      ImageView ivBell = ViewBindings.findChildViewById(rootView, id);
+      if (ivBell == null) {
+        break missingId;
+      }
+
       id = R.id.iv_profile;
       ShapeableImageView ivProfile = ViewBindings.findChildViewById(rootView, id);
       if (ivProfile == null) {
         break missingId;
       }
 
-      id = R.id.tv_username;
-      TextView tvUsername = ViewBindings.findChildViewById(rootView, id);
-      if (tvUsername == null) {
+      id = R.id.tv_greeting;
+      TextView tvGreeting = ViewBindings.findChildViewById(rootView, id);
+      if (tvGreeting == null) {
         break missingId;
       }
 
-      return new ActivityMainBinding((ConstraintLayout) rootView, bottomNav, btnSearchFlights,
-          ivProfile, tvUsername);
+      return new ActivityMainBinding((ConstraintLayout) rootView, bottomNavMock, btnSearchFlights,
+          ivBell, ivProfile, tvGreeting);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
