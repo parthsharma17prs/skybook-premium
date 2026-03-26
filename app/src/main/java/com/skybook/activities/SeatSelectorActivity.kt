@@ -5,8 +5,10 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import android.widget.*
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
@@ -95,7 +97,7 @@ class SeatSelectorActivity : AppCompatActivity() {
                     .setTitle("Booking Successful! ✈️")
                     .setMessage("Your ticket for seats $seatStr has been confirmed. You can view your ticket now.")
                     .setCancelable(false)
-                    .setPositiveButton("View Ticket") { _, _ ->
+                    .setPositiveButton("View Ticket") { dialog, which ->
                         val intent = Intent(this@SeatSelectorActivity, ConfirmationActivity::class.java)
                         intent.putExtra("BOOKING_ID", bookingId.toInt())
                         intent.putExtra("SEATS", seatStr)
@@ -147,7 +149,7 @@ class SeatSelectorActivity : AppCompatActivity() {
 
         return TextView(this).apply {
             text = seatId
-            textSize = 10sp.toFloat()
+            textSize = 12f
             gravity = Gravity.CENTER
             layoutParams = LinearLayout.LayoutParams(sizeDp, sizeDp).apply {
                 setMargins(margin, margin, margin, margin)
