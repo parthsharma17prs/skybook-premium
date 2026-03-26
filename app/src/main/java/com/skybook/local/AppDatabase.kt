@@ -22,6 +22,9 @@ interface AppDao {
     @Query("SELECT * FROM flights WHERE fromCity LIKE '%' || :from || '%' AND toCity LIKE '%' || :to || '%'")
     suspend fun searchFlights(from: String, to: String): List<FlightEntity>
 
+    @Query("SELECT * FROM flights WHERE id = :flightId")
+    suspend fun getFlightById(flightId: Int): FlightEntity?
+
     @Query("SELECT COUNT(*) FROM flights")
     suspend fun getFlightCount(): Int
 
@@ -35,6 +38,12 @@ interface AppDao {
 
     @Query("UPDATE bookings SET status = :status WHERE id = :bookingId")
     suspend fun updateBookingStatus(bookingId: Int, status: String)
+
+    @Query("DELETE FROM bookings WHERE id = :bookingId")
+    suspend fun deleteBooking(bookingId: Int)
+
+    @Query("SELECT seatNumber FROM bookings WHERE flightId = :flightId AND status != 'CANCELLED'")
+    suspend fun getBookedSeats(flightId: Int): List<String>
 }
 
 data class BookingWithFlight(

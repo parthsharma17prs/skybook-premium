@@ -10,7 +10,9 @@
         android:layout_height="match_parent"
         android:src="@drawable/world"
         android:scaleType="centerCrop"
-        android:alpha="0.2" />
+        android:alpha="0.2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <!-- Header -->
     <LinearLayout
@@ -19,7 +21,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="24dp"
+        android:padding="20dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -31,9 +33,10 @@
             app:tint="@color/white" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
             android:text="Choose seats"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -41,55 +44,67 @@
             android:fontFamily="@font/outfit_bold" />
     </LinearLayout>
 
-    <!-- Main Container -->
+    <!-- Scrollable Seat Map -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/bottom_action_bar_container"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toTopOf="@id/bottom_bar"
         app:layout_constraintTop_toBottomOf="@id/header">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
 
-            <!-- Airplane Frame + Grid Overlay -->
-            <FrameLayout
+            <!-- Plane nose image above grid -->
+            <ImageView
+                android:layout_width="220dp"
+                android:layout_height="120dp"
+                android:src="@drawable/airple_seat"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="8dp" />
+
+            <!-- Column Headers: A B C | D E F -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
 
-                <ImageView
-                    android:id="@+id/iv_bg_airplane"
-                    android:layout_width="340dp"
-                    android:layout_height="700dp"
-                    android:src="@drawable/airple_seat"
-                    android:scaleType="fitCenter" />
+                <TextView android:layout_width="32dp" android:layout_height="wrap_content" android:text="" />
+                <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:gravity="center" android:text="A" android:textColor="@color/colorTextSecondary" android:textSize="11sp" android:fontFamily="@font/outfit_bold"/>
+                <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:gravity="center" android:text="B" android:textColor="@color/colorTextSecondary" android:textSize="11sp" android:fontFamily="@font/outfit_bold"/>
+                <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:gravity="center" android:text="C" android:textColor="@color/colorTextSecondary" android:textSize="11sp" android:fontFamily="@font/outfit_bold"/>
+                <TextView android:layout_width="20dp" android:layout_height="wrap_content" android:text="" />
+                <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:gravity="center" android:text="D" android:textColor="@color/colorTextSecondary" android:textSize="11sp" android:fontFamily="@font/outfit_bold"/>
+                <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:gravity="center" android:text="E" android:textColor="@color/colorTextSecondary" android:textSize="11sp" android:fontFamily="@font/outfit_bold"/>
+                <TextView android:layout_width="40dp" android:layout_height="wrap_content" android:gravity="center" android:text="F" android:textColor="@color/colorTextSecondary" android:textSize="11sp" android:fontFamily="@font/outfit_bold"/>
+            </LinearLayout>
 
-                <!-- The Seat Grid (Real RecyclerView) -->
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_seats"
-                    android:layout_width="220dp"
-                    android:layout_height="600dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="100dp"
-                    android:overScrollMode="never" />
-
-            </FrameLayout>
+            <!-- Seat Rows Container (8 rows) -->
+            <LinearLayout
+                android:id="@+id/seat_rows_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <!-- Bottom Action Bar -->
     <LinearLayout
-        android:id="@+id/bottom_action_bar_container"
+        android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#1B0A38"
         android:orientation="vertical"
-        android:paddingTop="20dp"
-        android:paddingBottom="30dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="28dp"
         android:paddingHorizontal="24dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
@@ -100,51 +115,67 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <View android:layout_width="12dp" android:layout_height="12dp" android:background="@color/colorSuccess" android:alpha="0.8"/>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Available" android:textColor="@color/white" android:textSize="11sp" android:layout_marginStart="4dp" android:layout_marginEnd="16dp" android:fontFamily="@font/outfit_medium"/>
+            <View android:layout_width="14dp" android:layout_height="14dp" android:background="#4CAF50"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Available" android:textColor="@color/white" android:textSize="12sp" android:layout_marginEnd="20dp" android:fontFamily="@font/outfit_medium"/>
 
-            <View android:layout_width="12dp" android:layout_height="12dp" android:background="@color/accent_yellow"/>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Selected" android:textColor="@color/white" android:textSize="11sp" android:layout_marginStart="4dp" android:layout_marginEnd="16dp" android:fontFamily="@font/outfit_medium"/>
+            <View android:layout_width="14dp" android:layout_height="14dp" android:background="#FFC107"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Selected" android:textColor="@color/white" android:textSize="12sp" android:layout_marginEnd="20dp" android:fontFamily="@font/outfit_medium"/>
 
-            <View android:layout_width="12dp" android:layout_height="12dp" android:background="@color/colorTextSecondary" android:alpha="0.4"/>
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Taken" android:textColor="@color/white" android:textSize="11sp" android:layout_marginStart="4dp" android:fontFamily="@font/outfit_medium"/>
+            <View android:layout_width="14dp" android:layout_height="14dp" android:background="#808080"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Unavailable" android:textColor="@color/white" android:textSize="12sp" android:fontFamily="@font/outfit_medium"/>
         </LinearLayout>
 
-        <!-- Selection Details -->
+        <!-- Selected Info + Confirm -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="16dp">
 
-            <TextView
-                android:id="@+id/tv_seats_info"
+            <LinearLayout
+                android:id="@+id/ll_seat_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select Seats"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:fontFamily="@font/outfit_bold"
+                android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_seats_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 Seat Selected"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/outfit_bold" />
+
+                <TextView
+                    android:id="@+id/tv_selected_seat_labels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2F, 4C, 5C"
+                    android:textColor="@color/accent_pink"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/outfit_medium" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tv_total_price_seats"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$0.00"
-                android:textColor="@color/accent_pink"
-                android:textSize="22sp"
+                android:text="$169.00"
+                android:textColor="@color/accent_yellow"
+                android:textSize="24sp"
+                android:textStyle="bold"
                 android:fontFamily="@font/outfit_bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <FrameLayout
             android:id="@+id/btn_confirm_seat"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/bg_search_btn"
             android:clickable="true"
             android:focusable="true">

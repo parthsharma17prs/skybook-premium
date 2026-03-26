@@ -38,7 +38,11 @@ class MainActivity : AppCompatActivity() {
         val cities = arrayOf(
             "New York", "Los Angeles", "London", "Paris", "Dubai",
             "Mumbai", "Singapore", "Sydney", "Tokyo", "San Francisco",
-            "Bangkok", "Hong Kong", "Amsterdam", "Toronto", "Chicago"
+            "Bangkok", "Hong Kong", "Amsterdam", "Toronto", "Chicago",
+            "Berlin", "Rome", "Madrid", "Barcelona", "Istanbul",
+            "Seoul", "Shanghai", "Melbourne", "Cape Town", "Rio de Janeiro",
+            "Mexico City", "Miami", "Las Vegas", "Seattle", "Boston",
+            "Delhi", "Bangalore", "Goa", "Kochi", "Chennai"
         )
         val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, cities)
         fromEt.setAdapter(adapter)
@@ -46,20 +50,32 @@ class MainActivity : AppCompatActivity() {
         fromEt.threshold = 1
         toEt.threshold = 1
 
-        // Passenger +/- buttons
-        findViewById<ImageView>(R.id.btn_pax_plus).setOnClickListener {
-            if (passengerCount < 9) { passengerCount++; tvPax.text = passengerCount.toString() }
+        // Bell icon - show a toast for notifications
+        findViewById<ImageView>(R.id.iv_bell).setOnClickListener {
+            Toast.makeText(this, "No new notifications", Toast.LENGTH_SHORT).show()
         }
+
+        // Passenger +/- buttons
         findViewById<ImageView>(R.id.btn_pax_minus).setOnClickListener {
-            if (passengerCount > 1) { passengerCount--; tvPax.text = passengerCount.toString() }
+            if (passengerCount > 1) { 
+                passengerCount--
+                tvPax.text = passengerCount.toString() 
+            }
+        }
+        findViewById<ImageView>(R.id.btn_pax_plus).setOnClickListener {
+            if (passengerCount < 9) { 
+                passengerCount++
+                tvPax.text = passengerCount.toString() 
+            }
         }
 
         // Class picker
         findViewById<LinearLayout>(R.id.btn_class_selector).setOnClickListener {
+            val pickerItems = arrayOf("Economy", "Premium Economy", "Business", "First Class")
             AlertDialog.Builder(this)
                 .setTitle("Select Class")
-                .setItems(classes) { _, which ->
-                    selectedClass = classes[which]
+                .setItems(pickerItems) { _, which ->
+                    selectedClass = pickerItems[which]
                     tvClass.text = selectedClass
                 }
                 .show()
@@ -79,8 +95,14 @@ class MainActivity : AppCompatActivity() {
         profileImg.setOnClickListener { startActivity(Intent(this, ProfileActivity::class.java)) }
 
         // Bottom nav
-        findViewById<ImageView>(R.id.nav_home).setOnClickListener { /* already home */ }
-        findViewById<ImageView>(R.id.nav_search).setOnClickListener { /* click search btn */ }
+        findViewById<ImageView>(R.id.nav_home).setOnClickListener { 
+            Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
+        }
+        findViewById<ImageView>(R.id.nav_search).setOnClickListener { 
+            fromEt.requestFocus()
+            val imm = getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager
+            imm.showSoftInput(fromEt, android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT)
+        }
         findViewById<ImageView>(R.id.nav_bookings).setOnClickListener {
             startActivity(Intent(this, BookingHistoryActivity::class.java))
         }

@@ -7,7 +7,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:src="@drawable/world"
         android:scaleType="centerCrop"
         android:alpha="0.2"
@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
-        android:paddingHorizontal="24dp"
+        android:paddingHorizontal="20dp"
         android:paddingBottom="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header">
@@ -57,132 +57,163 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Ticket Card Overlay -->
+            <!-- Boarding Pass Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 app:cardBackgroundColor="@color/bg_light_purple"
-                app:cardCornerRadius="32dp"
+                app:cardCornerRadius="28dp"
                 app:cardElevation="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingTop="32dp">
+                    android:paddingTop="28dp">
 
+                    <!-- Airline Logo at top center -->
                     <ImageView
+                        android:id="@+id/iv_ticket_airline"
                         android:layout_width="140dp"
-                        android:layout_height="48dp"
+                        android:layout_height="44dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/delta_airline"
                         android:scaleType="fitCenter" />
 
-                    <!-- Route Section -->
+                    <!-- Route Row -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="32dp"
+                        android:layout_marginTop="24dp"
                         android:orientation="horizontal"
-                        android:paddingHorizontal="32dp">
+                        android:paddingHorizontal="28dp">
 
                         <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="New York" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium" />
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="JFK" android:textColor="@color/white" android:textSize="22sp" android:textStyle="bold" android:fontFamily="@font/outfit_bold" />
+                            <TextView android:id="@+id/tv_ticket_from_city" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="New York" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium"/>
+                            <TextView android:id="@+id/tv_ticket_from_code" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="JFK" android:textColor="@color/white" android:textSize="28sp" android:textStyle="bold" android:fontFamily="@font/outfit_bold"/>
                         </LinearLayout>
 
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
-                             <ImageView android:layout_width="100dp" android:layout_height="24dp" android:src="@drawable/line_airple_blue" android:scaleType="fitCenter" />
-                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="2h 45m" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium" />
+                            <ImageView android:layout_width="80dp" android:layout_height="20dp" android:src="@drawable/line_airple_blue" android:scaleType="fitCenter"/>
+                            <TextView android:id="@+id/tv_ticket_duration" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="6h 30m" android:textColor="@color/colorTextSecondary" android:textSize="11sp" android:fontFamily="@font/outfit_medium"/>
                         </LinearLayout>
 
                         <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="end" android:orientation="vertical">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Los Angeles" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium" />
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="LAX" android:textColor="@color/white" android:textSize="22sp" android:textStyle="bold" android:fontFamily="@font/outfit_bold" />
+                            <TextView android:id="@+id/tv_ticket_to_city" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Los Angeles" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium"/>
+                            <TextView android:id="@+id/tv_ticket_to_code" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="LAX" android:textColor="@color/white" android:textSize="28sp" android:textStyle="bold" android:fontFamily="@font/outfit_bold"/>
                         </LinearLayout>
                     </LinearLayout>
 
-                    <!-- Info Grid -->
+                    <!-- Grid of trip info -->
                     <GridLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="32dp"
+                        android:layout_marginTop="24dp"
                         android:columnCount="2"
-                        android:paddingHorizontal="32dp">
+                        android:paddingHorizontal="28dp">
 
-                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical" android:layout_marginBottom="24dp">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Passenger" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium"/>
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Alex Johnson" android:textColor="@color/white" android:textSize="16sp" android:fontFamily="@font/outfit_bold"/>
+                        <!-- From -->
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical" android:layout_marginBottom="20dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="From" android:textColor="@color/colorTextSecondary" android:textSize="11sp"/>
+                            <TextView android:id="@+id/tv_ticket_from_full" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="New York" android:textColor="@color/white" android:textSize="14sp" android:fontFamily="@font/outfit_bold"/>
                         </LinearLayout>
 
-                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical" android:gravity="end" android:layout_marginBottom="24dp">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Date" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium"/>
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="27 June 2024" android:textColor="@color/white" android:textSize="16sp" android:fontFamily="@font/outfit_bold"/>
+                        <!-- To -->
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical" android:layout_marginBottom="20dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="To" android:textColor="@color/colorTextSecondary" android:textSize="11sp"/>
+                            <TextView android:id="@+id/tv_ticket_to_full" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Los Angeles" android:textColor="@color/white" android:textSize="14sp" android:fontFamily="@font/outfit_bold"/>
                         </LinearLayout>
 
+                        <!-- Date -->
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical" android:layout_marginBottom="20dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Date" android:textColor="@color/colorTextSecondary" android:textSize="11sp"/>
+                            <TextView android:id="@+id/tv_ticket_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="27 June 2024" android:textColor="@color/white" android:textSize="14sp" android:fontFamily="@font/outfit_bold"/>
+                        </LinearLayout>
+
+                        <!-- Time -->
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical" android:layout_marginBottom="20dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Time" android:textColor="@color/colorTextSecondary" android:textSize="11sp"/>
+                            <TextView android:id="@+id/tv_ticket_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10:45 – 16:30" android:textColor="@color/white" android:textSize="14sp" android:fontFamily="@font/outfit_bold"/>
+                        </LinearLayout>
+
+                        <!-- Class -->
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical" android:layout_marginBottom="20dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Class" android:textColor="@color/colorTextSecondary" android:textSize="11sp"/>
+                            <TextView android:id="@+id/tv_ticket_class" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Business" android:textColor="@color/white" android:textSize="14sp" android:fontFamily="@font/outfit_bold"/>
+                        </LinearLayout>
+
+                        <!-- Passenger -->
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical" android:layout_marginBottom="20dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Passenger" android:textColor="@color/colorTextSecondary" android:textSize="11sp"/>
+                            <TextView android:id="@+id/tv_ticket_passenger" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Alex Johnson" android:textColor="@color/white" android:textSize="14sp" android:fontFamily="@font/outfit_bold"/>
+                        </LinearLayout>
+
+                        <!-- Seats -->
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical" android:layout_marginBottom="20dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Seats" android:textColor="@color/colorTextSecondary" android:textSize="11sp"/>
+                            <TextView android:id="@+id/tv_ticket_seat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2A, 3B" android:textColor="@color/accent_yellow" android:textSize="14sp" android:fontFamily="@font/outfit_bold"/>
+                        </LinearLayout>
+
+                        <!-- Price -->
                         <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Class" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium"/>
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Business" android:textColor="@color/white" android:textSize="16sp" android:fontFamily="@font/outfit_bold"/>
-                        </LinearLayout>
-
-                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical" android:gravity="end">
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Flight No" android:textColor="@color/colorTextSecondary" android:textSize="12sp" android:fontFamily="@font/outfit_medium"/>
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AR-524" android:textColor="@color/white" android:textSize="16sp" android:fontFamily="@font/outfit_bold"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Price" android:textColor="@color/colorTextSecondary" android:textSize="11sp"/>
+                            <TextView android:id="@+id/tv_ticket_price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="$380.00" android:textColor="@color/accent_pink" android:textSize="16sp" android:fontFamily="@font/outfit_bold"/>
                         </LinearLayout>
 
                     </GridLayout>
 
-                    <!-- Dash Perforation Line from repo -->
+                    <!-- Perforation -->
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="32dp"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginTop="8dp"
                         android:src="@drawable/dash_line"
                         android:scaleType="fitXY" />
 
-                    <!-- Bottom Barcode Section -->
+                    <!-- QR + Barcode -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:paddingVertical="32dp">
+                        android:paddingVertical="24dp">
+
+                        <TextView android:id="@+id/tv_ticket_flight_no" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SK-524" android:textColor="@color/accent_pink" android:textSize="13sp" android:fontFamily="@font/outfit_bold"/>
 
                         <ImageView
-                            android:layout_width="160dp"
-                            android:layout_height="160dp"
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            android:layout_marginTop="12dp"
                             android:src="@drawable/qrcode"
-                            android:padding="8dp" />
+                            android:padding="4dp" />
 
                         <ImageView
-                            android:layout_width="240dp"
-                            android:layout_height="60dp"
-                            android:layout_marginTop="24dp"
+                            android:layout_width="220dp"
+                            android:layout_height="56dp"
+                            android:layout_marginTop="16dp"
                             android:src="@drawable/barcode"
                             android:scaleType="fitCenter" />
-                            
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="6dp"
                             android:text="321654687"
                             android:textColor="@color/colorTextSecondary"
-                            android:textSize="12sp"
+                            android:textSize="11sp"
                             android:fontFamily="@font/outfit_medium" />
-
                     </LinearLayout>
-
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Action Button -->
+            <!-- Download Button -->
             <FrameLayout
                 android:id="@+id/btn_book_flight"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="60dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="40dp"
                 android:background="@drawable/bg_search_btn"
                 android:clickable="true"
                 android:focusable="true">
@@ -191,14 +222,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Download Ticket"
+                    android:text="⬇  Download Ticket"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:fontFamily="@font/outfit_bold" />
             </FrameLayout>
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
