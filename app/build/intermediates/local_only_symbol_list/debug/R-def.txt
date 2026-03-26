@@ -73,6 +73,8 @@ drawable ic_settings
 drawable line_airple_blue
 drawable passenger_ic
 drawable profile
+drawable promo_1
+drawable promo_2
 drawable qrcode
 drawable seat_black_ic
 drawable seat_human
@@ -85,7 +87,6 @@ font outfit
 font outfit_bold
 font outfit_medium
 font outfit_regular
-id bottom_bar
 id bottom_nav
 id bottom_panel
 id btn_admin_reprice
@@ -150,7 +151,6 @@ id layout_front
 id ll_empty
 id ll_hero
 id ll_logo
-id ll_seat_info
 id ll_title
 id lottie_success
 id nav_bookings

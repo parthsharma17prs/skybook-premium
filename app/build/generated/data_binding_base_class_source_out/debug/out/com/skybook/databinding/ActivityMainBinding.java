@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.google.android.material.imageview.ShapeableImageView;
@@ -70,6 +71,9 @@ public final class ActivityMainBinding implements ViewBinding {
   public final ImageView navSearch;
 
   @NonNull
+  public final RecyclerView rvRecommendations;
+
+  @NonNull
   public final TextView tvClass;
 
   @NonNull
@@ -91,8 +95,9 @@ public final class ActivityMainBinding implements ViewBinding {
       @NonNull AutoCompleteTextView etFromCity, @NonNull AutoCompleteTextView etToCity,
       @NonNull ImageView ivBell, @NonNull ShapeableImageView ivProfile,
       @NonNull ImageView navBookings, @NonNull ImageView navHome, @NonNull ImageView navProfile,
-      @NonNull ImageView navSearch, @NonNull TextView tvClass, @NonNull TextView tvDepartDate,
-      @NonNull TextView tvGreeting, @NonNull TextView tvPaxCount, @NonNull TextView tvReturnDate) {
+      @NonNull ImageView navSearch, @NonNull RecyclerView rvRecommendations,
+      @NonNull TextView tvClass, @NonNull TextView tvDepartDate, @NonNull TextView tvGreeting,
+      @NonNull TextView tvPaxCount, @NonNull TextView tvReturnDate) {
     this.rootView = rootView;
     this.bottomNav = bottomNav;
     this.btnClassSelector = btnClassSelector;
@@ -109,6 +114,7 @@ public final class ActivityMainBinding implements ViewBinding {
     this.navHome = navHome;
     this.navProfile = navProfile;
     this.navSearch = navSearch;
+    this.rvRecommendations = rvRecommendations;
     this.tvClass = tvClass;
     this.tvDepartDate = tvDepartDate;
     this.tvGreeting = tvGreeting;
@@ -233,6 +239,12 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.rv_recommendations;
+      RecyclerView rvRecommendations = ViewBindings.findChildViewById(rootView, id);
+      if (rvRecommendations == null) {
+        break missingId;
+      }
+
       id = R.id.tv_class;
       TextView tvClass = ViewBindings.findChildViewById(rootView, id);
       if (tvClass == null) {
@@ -265,8 +277,8 @@ public final class ActivityMainBinding implements ViewBinding {
 
       return new ActivityMainBinding((ConstraintLayout) rootView, bottomNav, btnClassSelector,
           btnDepartDate, btnPaxMinus, btnPaxPlus, btnReturnDate, btnSearchFlights, etFromCity,
-          etToCity, ivBell, ivProfile, navBookings, navHome, navProfile, navSearch, tvClass,
-          tvDepartDate, tvGreeting, tvPaxCount, tvReturnDate);
+          etToCity, ivBell, ivProfile, navBookings, navHome, navProfile, navSearch,
+          rvRecommendations, tvClass, tvDepartDate, tvGreeting, tvPaxCount, tvReturnDate);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

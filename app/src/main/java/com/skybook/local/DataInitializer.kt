@@ -21,28 +21,26 @@ object DataInitializer {
                     "Qatar Airways" to "american_airline"
                 )
 
-                // Routes matching EXACTLY what users will type (city names shown in autocomplete)
+                // Professional Skyscanner-like Routes
                 val routes = listOf(
-                    Triple("New York", "JFK", Pair("Los Angeles", "LAX")),
-                    Triple("Los Angeles", "LAX", Pair("New York", "JFK")),
+                    Triple("New York", "JFK", Pair("London", "LHR")),
                     Triple("London", "LHR", Pair("Paris", "CDG")),
-                    Triple("Paris", "CDG", Pair("London", "LHR")),
                     Triple("Dubai", "DXB", Pair("Mumbai", "BOM")),
                     Triple("Mumbai", "BOM", Pair("Dubai", "DXB")),
                     Triple("Singapore", "SIN", Pair("Sydney", "SYD")),
-                    Triple("Sydney", "SYD", Pair("Singapore", "SIN")),
                     Triple("Tokyo", "HND", Pair("San Francisco", "SFO")),
-                    Triple("San Francisco", "SFO", Pair("Tokyo", "HND")),
-                    Triple("New York", "JFK", Pair("London", "LHR")),
-                    Triple("London", "LHR", Pair("Dubai", "DXB")),
-                    Triple("Dubai", "DXB", Pair("Singapore", "SIN")),
-                    Triple("Mumbai", "BOM", Pair("Singapore", "SIN")),
-                    Triple("Bangkok", "BKK", Pair("Hong Kong", "HKG")),
-                    Triple("Hong Kong", "HKG", Pair("Tokyo", "HND")),
-                    Triple("Toronto", "YYZ", Pair("New York", "JFK")),
+                    Triple("Paris", "CDG", Pair("Dubai", "DXB")),
+                    Triple("San Francisco", "SFO", Pair("Tokyo", "NRT")),
+                    Triple("Delhi", "DEL", Pair("Bangalore", "BLR")),
+                    Triple("Bangalore", "BLR", Pair("Delhi", "DEL")),
+                    Triple("London", "LGW", Pair("Barcelona", "BCN")),
+                    Triple("Toronto", "YYZ", Pair("Vancouver", "YVR")),
+                    Triple("Sydney", "SYD", Pair("Auckland", "AKL")),
                     Triple("Chicago", "ORD", Pair("Los Angeles", "LAX")),
-                    Triple("Amsterdam", "AMS", Pair("Dubai", "DXB")),
-                    Triple("New York", "JFK", Pair("Paris", "CDG"))
+                    Triple("Miami", "MIA", Pair("Rio de Janeiro", "GIG")),
+                    Triple("Berlin", "BER", Pair("Rome", "FCO")),
+                    Triple("Singapore", "SIN", Pair("Bangkok", "BKK")),
+                    Triple("Hong Kong", "HKG", Pair("Seoul", "ICN"))
                 )
 
                 val flights = mutableListOf<FlightEntity>()

@@ -28,14 +28,14 @@ class SeatSelectorActivity : AppCompatActivity() {
     private val rows = listOf("1", "2", "3", "4", "5", "6", "7", "8")
     private val leftCols = listOf("A", "B", "C")
     private val rightCols = listOf("D", "E", "F")
-    private val takenSeats = setOf("1B", "1E", "2A", "2F", "3C", "3D", "4B", "5A", "6D", "7E")
+    // Static taken seats for UI demo (like the image)
+    private val baselineTaken = setOf("1B", "1C", "2B", "2C", "3A", "3C", "3F", "4D", "4F", "5A", "5D", "5E", "6F", "7A", "7B", "8C", "8D", "8F")
 
     // UI refs
     private lateinit var tvSeatsInfo: TextView
     private lateinit var tvSeatLabels: TextView
     private lateinit var tvTotalPrice: TextView
 
-    // Combine hardcoded and dynamic taken seats
     private val allTakenSeats = mutableSetOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,11 +50,9 @@ class SeatSelectorActivity : AppCompatActivity() {
         tvSeatLabels  = findViewById(R.id.tv_selected_seat_labels)
         tvTotalPrice  = findViewById(R.id.tv_total_price_seats)
 
-        // Reset and init
         allTakenSeats.clear()
-        allTakenSeats.addAll(takenSeats)
+        allTakenSeats.addAll(baselineTaken)
 
-        // Fetch flight price and booked seats
         lifecycleScope.launch {
             val dao = AppDatabase.getDatabase(this@SeatSelectorActivity).dao()
             val flight = dao.getFlightById(flightId)
@@ -62,16 +60,14 @@ class SeatSelectorActivity : AppCompatActivity() {
             
             val dbBooked = dao.getBookedSeats(flightId)
             dbBooked.forEach { seatStr ->
-                // seatStr might be "1A, 1B"
                 seatStr.split(", ").forEach { allTakenSeats.add(it.trim()) }
             }
             
             buildSeatGrid()
         }
 
-        findViewById<ImageView>(R.id.btn_back_seats).setOnClickListener { onBackPressed() }
+        findViewById<View>(R.id.btn_back_seats).setOnClickListener { onBackPressed() }
 
-        // Initial build (will be rebuilt once data comes)
         buildSeatGrid()
 
         // Confirm
@@ -93,11 +89,21 @@ class SeatSelectorActivity : AppCompatActivity() {
                         status = "CONFIRMED"
                     )
                 )
-                val intent = Intent(this@SeatSelectorActivity, ConfirmationActivity::class.java)
-                intent.putExtra("BOOKING_ID", bookingId.toInt())
-                intent.putExtra("SEATS", seatStr)
-                intent.putExtra("TOTAL_PRICE", selectedSeats.size * pricePerSeat)
-                startActivity(intent)
+
+                // Show professional success pop-up
+                AlertDialog.Builder(this@SeatSelectorActivity)
+                    .setTitle("Booking Successful! ✈️")
+                    .setMessage("Your ticket for seats $seatStr has been confirmed. You can view your ticket now.")
+                    .setCancelable(false)
+                    .setPositiveButton("View Ticket") { _, _ ->
+                        val intent = Intent(this@SeatSelectorActivity, ConfirmationActivity::class.java)
+                        intent.putExtra("BOOKING_ID", bookingId.toInt())
+                        intent.putExtra("SEATS", seatStr)
+                        intent.putExtra("TOTAL_PRICE", selectedSeats.size * pricePerSeat)
+                        startActivity(intent)
+                        finish()
+                    }
+                    .show()
             }
         }
     }
@@ -106,105 +112,77 @@ class SeatSelectorActivity : AppCompatActivity() {
         val container = findViewById<LinearLayout>(R.id.seat_rows_container)
         container.removeAllViews()
 
-        val dp4 = (4 * resources.displayMetrics.density).toInt()
-        val dp40 = (40 * resources.displayMetrics.density).toInt()
-        val dp32 = (32 * resources.displayMetrics.density).toInt()
-        val dp20 = (20 * resources.displayMetrics.density).toInt()
+        val margin = (6 * resources.displayMetrics.density).toInt()
+        val aisleMargin = (32 * resources.displayMetrics.density).toInt()
 
         for (row in rows) {
             val rowLayout = LinearLayout(this).apply {
                 orientation = LinearLayout.HORIZONTAL
-                gravity = Gravity.CENTER_VERTICAL
-                setPadding(0, dp4, 0, dp4)
-            }
-
-            // Row number label
-            val rowLabel = TextView(this).apply {
-                text = row
-                textSize = 11f
-                setTextColor(Color.parseColor("#AAAAAA"))
-                width = dp32
                 gravity = Gravity.CENTER
-                typeface = Typeface.DEFAULT_BOLD
+                setPadding(0, margin/2, 0, margin/2)
             }
-            rowLayout.addView(rowLabel)
 
-            // Left 3 seats (A, B, C)
+            // Left Block (A, B, C)
             for (col in leftCols) {
-                rowLayout.addView(makeSeatView(row + col, dp40, dp4))
+                rowLayout.addView(makeSeatView(col + row))
             }
 
-            // Aisle gap
-            val aisle = Space(this).apply { layoutParams = LinearLayout.LayoutParams(dp20, 1) }
+            // Aisle
+            val aisle = Space(this).apply { layoutParams = LinearLayout.LayoutParams(aisleMargin, 1) }
             rowLayout.addView(aisle)
 
-            // Right 3 seats (D, E, F)
+            // Right Block (D, E, F)
             for (col in rightCols) {
-                rowLayout.addView(makeSeatView(row + col, dp40, dp4))
+                rowLayout.addView(makeSeatView(col + row))
             }
 
             container.addView(rowLayout)
         }
     }
 
-    private fun makeSeatView(seatId: String, sizeDp: Int, marginDp: Int): LinearLayout {
-        val isTaken = allTakenSeats.contains(seatId) // USE allTakenSeats
-        val layout = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            gravity = Gravity.CENTER
-            val lp = LinearLayout.LayoutParams(sizeDp, sizeDp)
-            lp.setMargins(marginDp, marginDp, marginDp, marginDp)
-            layoutParams = lp
-        }
+    private fun makeSeatView(seatId: String): TextView {
+        val isTaken = allTakenSeats.contains(seatId)
+        val sizeDp = (38 * resources.displayMetrics.density).toInt()
+        val margin = (4 * resources.displayMetrics.density).toInt()
 
-        val seatView = ImageView(this).apply {
-            setImageResource(R.drawable.ic_seat)
-            val lp = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT
-            )
-            layoutParams = lp
-            val color = when {
-                isTaken -> Color.parseColor("#303030") // DARK GRAY FOR TAKEN
-                else -> Color.parseColor("#673AB7") // PURPLE FOR AVAILABLE
-            }
-            setColorFilter(color, android.graphics.PorterDuff.Mode.SRC_IN)
-        }
-        layout.addView(seatView)
-
-        // Label under seat
-        val label = TextView(this).apply {
+        return TextView(this).apply {
             text = seatId
-            textSize = 8f
-            setTextColor(if (isTaken) Color.parseColor("#555555") else Color.parseColor("#AAAAAA"))
+            textSize = 10sp.toFloat()
             gravity = Gravity.CENTER
+            layoutParams = LinearLayout.LayoutParams(sizeDp, sizeDp).apply {
+                setMargins(margin, margin, margin, margin)
+            }
+            
+            typeface = Typeface.DEFAULT_BOLD
+            
+            if (isTaken) {
+                setBackgroundResource(R.drawable.bg_seat_booked)
+                setTextColor(Color.parseColor("#757575"))
+                alpha = 0.8f
+            } else {
+                setBackgroundResource(R.drawable.bg_seat_available)
+                setTextColor(Color.parseColor("#333333"))
+                setOnClickListener { toggleSeat(seatId, this) }
+            }
         }
-        layout.addView(label)
-
-        if (!isTaken) {
-            layout.setOnClickListener { toggleSeat(seatId, seatView, label) }
-        } else {
-            layout.alpha = 0.5f
-        }
-        return layout
     }
 
-    private fun toggleSeat(seatId: String, icon: ImageView, label: TextView) {
+    private fun toggleSeat(seatId: String, view: TextView) {
         if (selectedSeats.contains(seatId)) {
             selectedSeats.remove(seatId)
-            icon.setColorFilter(Color.parseColor("#673AB7"), android.graphics.PorterDuff.Mode.SRC_IN)
-            label.setTextColor(Color.parseColor("#AAAAAA"))
+            view.setBackgroundResource(R.drawable.bg_seat_available)
+            view.setTextColor(Color.parseColor("#333333"))
         } else {
             selectedSeats.add(seatId)
-            icon.setColorFilter(Color.parseColor("#FFC107"), android.graphics.PorterDuff.Mode.SRC_IN) // YELLOW
-            label.setTextColor(Color.parseColor("#FFC107"))
+            view.setBackgroundResource(R.drawable.bg_seat_selected)
+            view.setTextColor(Color.BLACK)
         }
-        updateBottomBar()
+        updateBottomPanel()
     }
 
-    private fun updateBottomBar() {
+    private fun updateBottomPanel() {
         val count = selectedSeats.size
-        tvSeatsInfo.text = if (count == 0) "Select Seats" else "$count Seat${if (count > 1) "s" else ""} Selected"
+        tvSeatsInfo.text = "$count Seat${if (count != 1) "s" else ""} Selected"
         tvSeatLabels.text = if (selectedSeats.isEmpty()) "" else selectedSeats.sorted().joinToString(", ")
         tvTotalPrice.text = "$${String.format("%.2f", count * pricePerSeat)}"
     }
