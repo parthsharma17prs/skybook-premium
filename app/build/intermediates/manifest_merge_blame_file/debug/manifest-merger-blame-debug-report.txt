@@ -14,167 +14,173 @@
 12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 12-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:5:5-79
 12-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:5:22-76
-13
-14    <permission
-14-->[androidx.core:core:1.12.0] /Users/macbook/.gradle/caches/8.14.2/transforms/cd47b64d694710e4256f2be42c4f561b/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
-15        android:name="com.skybook.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-15-->[androidx.core:core:1.12.0] /Users/macbook/.gradle/caches/8.14.2/transforms/cd47b64d694710e4256f2be42c4f561b/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
-16        android:protectionLevel="signature" />
-16-->[androidx.core:core:1.12.0] /Users/macbook/.gradle/caches/8.14.2/transforms/cd47b64d694710e4256f2be42c4f561b/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
-17
-18    <uses-permission android:name="com.skybook.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-18-->[androidx.core:core:1.12.0] /Users/macbook/.gradle/caches/8.14.2/transforms/cd47b64d694710e4256f2be42c4f561b/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
-18-->[androidx.core:core:1.12.0] /Users/macbook/.gradle/caches/8.14.2/transforms/cd47b64d694710e4256f2be42c4f561b/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+13    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+13-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:6:5-77
+13-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:6:22-74
+14    <uses-permission android:name="android.permission.VIBRATE" />
+14-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:7:5-66
+14-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:7:22-63
+15
+16    <permission
+16-->[androidx.core:core:1.12.0] /Users/macbook/.gradle/caches/8.14.2/transforms/cd47b64d694710e4256f2be42c4f561b/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+17        android:name="com.skybook.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+17-->[androidx.core:core:1.12.0] /Users/macbook/.gradle/caches/8.14.2/transforms/cd47b64d694710e4256f2be42c4f561b/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+18        android:protectionLevel="signature" />
+18-->[androidx.core:core:1.12.0] /Users/macbook/.gradle/caches/8.14.2/transforms/cd47b64d694710e4256f2be42c4f561b/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
 19
-20    <application
-20-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:7:5-34:19
-21        android:name="com.skybook.SkyBookApplication"
-21-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:8:9-43
-22        android:allowBackup="true"
-22-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:9:9-35
-23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-23-->[androidx.core:core:1.12.0] /Users/macbook/.gradle/caches/8.14.2/transforms/cd47b64d694710e4256f2be42c4f561b/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
-24        android:debuggable="true"
-25        android:extractNativeLibs="false"
-26        android:icon="@mipmap/ic_launcher"
-26-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:10:9-43
-27        android:label="@string/app_name"
-27-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:11:9-41
-28        android:supportsRtl="true"
-28-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:12:9-35
-29        android:theme="@style/Theme.SkyBook"
-29-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:13:9-45
-30        android:usesCleartextTraffic="true" >
-30-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:14:9-44
-31        <activity
-31-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:16:9-23:20
-32            android:name="com.skybook.activities.SplashActivity"
-32-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:17:13-54
-33            android:exported="true" >
-33-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:18:13-36
-34            <intent-filter>
-34-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:19:13-22:29
-35                <action android:name="android.intent.action.MAIN" />
-35-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:20:17-69
-35-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:20:25-66
-36
-37                <category android:name="android.intent.category.LAUNCHER" />
-37-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:21:17-77
-37-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:21:27-74
-38            </intent-filter>
-39        </activity>
-40        <activity android:name="com.skybook.activities.GetStartedActivity" />
-40-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:25:9-67
-40-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:25:19-64
-41        <activity android:name="com.skybook.activities.AuthActivity" />
-41-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:26:9-61
-41-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:26:19-58
-42        <activity android:name="com.skybook.activities.MainActivity" />
-42-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:27:9-61
-42-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:27:19-58
-43        <activity android:name="com.skybook.activities.FlightResultsActivity" />
-43-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:28:9-70
-43-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:28:19-67
-44        <activity android:name="com.skybook.activities.SeatSelectorActivity" />
-44-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:29:9-69
-44-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:29:19-66
-45        <activity android:name="com.skybook.activities.ConfirmationActivity" />
-45-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:30:9-69
-45-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:30:19-66
-46        <activity android:name="com.skybook.activities.BookingHistoryActivity" />
-46-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:31:9-71
-46-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:31:19-68
-47        <activity android:name="com.skybook.activities.ProfileActivity" />
-47-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:32:9-64
-47-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:32:19-61
-48
-49        <provider
-49-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5a803d969479338fca5b73ac7abda705/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
-50            android:name="androidx.startup.InitializationProvider"
-50-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5a803d969479338fca5b73ac7abda705/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
-51            android:authorities="com.skybook.androidx-startup"
-51-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5a803d969479338fca5b73ac7abda705/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
-52            android:exported="false" >
-52-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5a803d969479338fca5b73ac7abda705/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
-53            <meta-data
-53-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5a803d969479338fca5b73ac7abda705/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
-54                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-54-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5a803d969479338fca5b73ac7abda705/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
-55                android:value="androidx.startup" />
-55-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5a803d969479338fca5b73ac7abda705/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
-56            <meta-data
-56-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/macbook/.gradle/caches/8.14.2/transforms/b4547fa36b103e767584d0cec99ee3d2/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
-57                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-57-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/macbook/.gradle/caches/8.14.2/transforms/b4547fa36b103e767584d0cec99ee3d2/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
-58                android:value="androidx.startup" />
-58-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/macbook/.gradle/caches/8.14.2/transforms/b4547fa36b103e767584d0cec99ee3d2/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
-59            <meta-data
-59-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
-60                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-60-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
-61                android:value="androidx.startup" />
-61-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
-62        </provider>
-63
-64        <uses-library
-64-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/8.14.2/transforms/af8b06e7160a519b567e4918e03cb9e2/transformed/jetified-window-1.0.0/AndroidManifest.xml:25:9-27:40
-65            android:name="androidx.window.extensions"
-65-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/8.14.2/transforms/af8b06e7160a519b567e4918e03cb9e2/transformed/jetified-window-1.0.0/AndroidManifest.xml:26:13-54
-66            android:required="false" />
-66-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/8.14.2/transforms/af8b06e7160a519b567e4918e03cb9e2/transformed/jetified-window-1.0.0/AndroidManifest.xml:27:13-37
-67        <uses-library
-67-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/8.14.2/transforms/af8b06e7160a519b567e4918e03cb9e2/transformed/jetified-window-1.0.0/AndroidManifest.xml:28:9-30:40
-68            android:name="androidx.window.sidecar"
-68-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/8.14.2/transforms/af8b06e7160a519b567e4918e03cb9e2/transformed/jetified-window-1.0.0/AndroidManifest.xml:29:13-51
-69            android:required="false" />
-69-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/8.14.2/transforms/af8b06e7160a519b567e4918e03cb9e2/transformed/jetified-window-1.0.0/AndroidManifest.xml:30:13-37
-70
-71        <service
-71-->[androidx.room:room-runtime:2.6.1] /Users/macbook/.gradle/caches/8.14.2/transforms/b0adeace6044b955c150ca5c8baaf828/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
-72            android:name="androidx.room.MultiInstanceInvalidationService"
-72-->[androidx.room:room-runtime:2.6.1] /Users/macbook/.gradle/caches/8.14.2/transforms/b0adeace6044b955c150ca5c8baaf828/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
-73            android:directBootAware="true"
-73-->[androidx.room:room-runtime:2.6.1] /Users/macbook/.gradle/caches/8.14.2/transforms/b0adeace6044b955c150ca5c8baaf828/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
-74            android:exported="false" />
-74-->[androidx.room:room-runtime:2.6.1] /Users/macbook/.gradle/caches/8.14.2/transforms/b0adeace6044b955c150ca5c8baaf828/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
-75
-76        <receiver
-76-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
-77            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-77-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
-78            android:directBootAware="false"
-78-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
-79            android:enabled="true"
-79-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
-80            android:exported="true"
-80-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
-81            android:permission="android.permission.DUMP" >
-81-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
-82            <intent-filter>
-82-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
-83                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-83-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
-83-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
-84            </intent-filter>
-85            <intent-filter>
-85-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
-86                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-86-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
-86-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
-87            </intent-filter>
-88            <intent-filter>
-88-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
-89                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-89-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
-89-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
-90            </intent-filter>
-91            <intent-filter>
-91-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
-92                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-92-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
-92-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
-93            </intent-filter>
-94        </receiver>
-95    </application>
-96
-97</manifest>
+20    <uses-permission android:name="com.skybook.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+20-->[androidx.core:core:1.12.0] /Users/macbook/.gradle/caches/8.14.2/transforms/cd47b64d694710e4256f2be42c4f561b/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+20-->[androidx.core:core:1.12.0] /Users/macbook/.gradle/caches/8.14.2/transforms/cd47b64d694710e4256f2be42c4f561b/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+21
+22    <application
+22-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:9:5-36:19
+23        android:name="com.skybook.SkyBookApplication"
+23-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:10:9-43
+24        android:allowBackup="true"
+24-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:11:9-35
+25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+25-->[androidx.core:core:1.12.0] /Users/macbook/.gradle/caches/8.14.2/transforms/cd47b64d694710e4256f2be42c4f561b/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+26        android:debuggable="true"
+27        android:extractNativeLibs="false"
+28        android:icon="@mipmap/ic_launcher"
+28-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:12:9-43
+29        android:label="@string/app_name"
+29-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:13:9-41
+30        android:supportsRtl="true"
+30-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:14:9-35
+31        android:theme="@style/Theme.SkyBook"
+31-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:15:9-45
+32        android:usesCleartextTraffic="true" >
+32-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:16:9-44
+33        <activity
+33-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:18:9-25:20
+34            android:name="com.skybook.activities.SplashActivity"
+34-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:19:13-54
+35            android:exported="true" >
+35-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:20:13-36
+36            <intent-filter>
+36-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:21:13-24:29
+37                <action android:name="android.intent.action.MAIN" />
+37-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:22:17-69
+37-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:22:25-66
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:23:17-77
+39-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:23:27-74
+40            </intent-filter>
+41        </activity>
+42        <activity android:name="com.skybook.activities.GetStartedActivity" />
+42-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:27:9-67
+42-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:27:19-64
+43        <activity android:name="com.skybook.activities.AuthActivity" />
+43-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:28:9-61
+43-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:28:19-58
+44        <activity android:name="com.skybook.activities.MainActivity" />
+44-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:29:9-61
+44-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:29:19-58
+45        <activity android:name="com.skybook.activities.FlightResultsActivity" />
+45-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:30:9-70
+45-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:30:19-67
+46        <activity android:name="com.skybook.activities.SeatSelectorActivity" />
+46-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:31:9-69
+46-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:31:19-66
+47        <activity android:name="com.skybook.activities.ConfirmationActivity" />
+47-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:32:9-69
+47-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:32:19-66
+48        <activity android:name="com.skybook.activities.BookingHistoryActivity" />
+48-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:33:9-71
+48-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:33:19-68
+49        <activity android:name="com.skybook.activities.ProfileActivity" />
+49-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:34:9-64
+49-->/Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:34:19-61
+50
+51        <provider
+51-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5a803d969479338fca5b73ac7abda705/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+52            android:name="androidx.startup.InitializationProvider"
+52-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5a803d969479338fca5b73ac7abda705/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+53            android:authorities="com.skybook.androidx-startup"
+53-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5a803d969479338fca5b73ac7abda705/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+54            android:exported="false" >
+54-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5a803d969479338fca5b73ac7abda705/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+55            <meta-data
+55-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5a803d969479338fca5b73ac7abda705/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+56                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+56-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5a803d969479338fca5b73ac7abda705/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+57                android:value="androidx.startup" />
+57-->[androidx.emoji2:emoji2:1.2.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5a803d969479338fca5b73ac7abda705/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+58            <meta-data
+58-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/macbook/.gradle/caches/8.14.2/transforms/b4547fa36b103e767584d0cec99ee3d2/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+59                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+59-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/macbook/.gradle/caches/8.14.2/transforms/b4547fa36b103e767584d0cec99ee3d2/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+60                android:value="androidx.startup" />
+60-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/macbook/.gradle/caches/8.14.2/transforms/b4547fa36b103e767584d0cec99ee3d2/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+61            <meta-data
+61-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+62                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+62-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+63                android:value="androidx.startup" />
+63-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+64        </provider>
+65
+66        <uses-library
+66-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/8.14.2/transforms/af8b06e7160a519b567e4918e03cb9e2/transformed/jetified-window-1.0.0/AndroidManifest.xml:25:9-27:40
+67            android:name="androidx.window.extensions"
+67-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/8.14.2/transforms/af8b06e7160a519b567e4918e03cb9e2/transformed/jetified-window-1.0.0/AndroidManifest.xml:26:13-54
+68            android:required="false" />
+68-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/8.14.2/transforms/af8b06e7160a519b567e4918e03cb9e2/transformed/jetified-window-1.0.0/AndroidManifest.xml:27:13-37
+69        <uses-library
+69-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/8.14.2/transforms/af8b06e7160a519b567e4918e03cb9e2/transformed/jetified-window-1.0.0/AndroidManifest.xml:28:9-30:40
+70            android:name="androidx.window.sidecar"
+70-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/8.14.2/transforms/af8b06e7160a519b567e4918e03cb9e2/transformed/jetified-window-1.0.0/AndroidManifest.xml:29:13-51
+71            android:required="false" />
+71-->[androidx.window:window:1.0.0] /Users/macbook/.gradle/caches/8.14.2/transforms/af8b06e7160a519b567e4918e03cb9e2/transformed/jetified-window-1.0.0/AndroidManifest.xml:30:13-37
+72
+73        <service
+73-->[androidx.room:room-runtime:2.6.1] /Users/macbook/.gradle/caches/8.14.2/transforms/b0adeace6044b955c150ca5c8baaf828/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+74            android:name="androidx.room.MultiInstanceInvalidationService"
+74-->[androidx.room:room-runtime:2.6.1] /Users/macbook/.gradle/caches/8.14.2/transforms/b0adeace6044b955c150ca5c8baaf828/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+75            android:directBootAware="true"
+75-->[androidx.room:room-runtime:2.6.1] /Users/macbook/.gradle/caches/8.14.2/transforms/b0adeace6044b955c150ca5c8baaf828/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+76            android:exported="false" />
+76-->[androidx.room:room-runtime:2.6.1] /Users/macbook/.gradle/caches/8.14.2/transforms/b0adeace6044b955c150ca5c8baaf828/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+77
+78        <receiver
+78-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+79            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+79-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+80            android:directBootAware="false"
+80-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+81            android:enabled="true"
+81-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+82            android:exported="true"
+82-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+83            android:permission="android.permission.DUMP" >
+83-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+84            <intent-filter>
+84-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+85                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+86            </intent-filter>
+87            <intent-filter>
+87-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+88                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+89            </intent-filter>
+90            <intent-filter>
+90-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+91                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+91-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+91-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+92            </intent-filter>
+93            <intent-filter>
+93-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+94                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+94-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+94-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/macbook/.gradle/caches/8.14.2/transforms/5abbd8da2173bb356e953681260214c4/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+95            </intent-filter>
+96        </receiver>
+97    </application>
+98
+99</manifest>

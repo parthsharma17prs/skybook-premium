@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -30,13 +31,80 @@ public final class ActivityTicketDetailsBinding implements ViewBinding {
   @NonNull
   public final LinearLayout header;
 
+  @NonNull
+  public final ImageView ivTicketAirline;
+
+  @NonNull
+  public final TextView tvTicketClass;
+
+  @NonNull
+  public final TextView tvTicketDate;
+
+  @NonNull
+  public final TextView tvTicketDuration;
+
+  @NonNull
+  public final TextView tvTicketFlightNo;
+
+  @NonNull
+  public final TextView tvTicketFromCity;
+
+  @NonNull
+  public final TextView tvTicketFromCode;
+
+  @NonNull
+  public final TextView tvTicketFromFull;
+
+  @NonNull
+  public final TextView tvTicketPassenger;
+
+  @NonNull
+  public final TextView tvTicketPrice;
+
+  @NonNull
+  public final TextView tvTicketSeat;
+
+  @NonNull
+  public final TextView tvTicketTime;
+
+  @NonNull
+  public final TextView tvTicketToCity;
+
+  @NonNull
+  public final TextView tvTicketToCode;
+
+  @NonNull
+  public final TextView tvTicketToFull;
+
   private ActivityTicketDetailsBinding(@NonNull ConstraintLayout rootView,
       @NonNull ImageView btnBackConfirm, @NonNull FrameLayout btnBookFlight,
-      @NonNull LinearLayout header) {
+      @NonNull LinearLayout header, @NonNull ImageView ivTicketAirline,
+      @NonNull TextView tvTicketClass, @NonNull TextView tvTicketDate,
+      @NonNull TextView tvTicketDuration, @NonNull TextView tvTicketFlightNo,
+      @NonNull TextView tvTicketFromCity, @NonNull TextView tvTicketFromCode,
+      @NonNull TextView tvTicketFromFull, @NonNull TextView tvTicketPassenger,
+      @NonNull TextView tvTicketPrice, @NonNull TextView tvTicketSeat,
+      @NonNull TextView tvTicketTime, @NonNull TextView tvTicketToCity,
+      @NonNull TextView tvTicketToCode, @NonNull TextView tvTicketToFull) {
     this.rootView = rootView;
     this.btnBackConfirm = btnBackConfirm;
     this.btnBookFlight = btnBookFlight;
     this.header = header;
+    this.ivTicketAirline = ivTicketAirline;
+    this.tvTicketClass = tvTicketClass;
+    this.tvTicketDate = tvTicketDate;
+    this.tvTicketDuration = tvTicketDuration;
+    this.tvTicketFlightNo = tvTicketFlightNo;
+    this.tvTicketFromCity = tvTicketFromCity;
+    this.tvTicketFromCode = tvTicketFromCode;
+    this.tvTicketFromFull = tvTicketFromFull;
+    this.tvTicketPassenger = tvTicketPassenger;
+    this.tvTicketPrice = tvTicketPrice;
+    this.tvTicketSeat = tvTicketSeat;
+    this.tvTicketTime = tvTicketTime;
+    this.tvTicketToCity = tvTicketToCity;
+    this.tvTicketToCode = tvTicketToCode;
+    this.tvTicketToFull = tvTicketToFull;
   }
 
   @Override
@@ -84,8 +152,101 @@ public final class ActivityTicketDetailsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.iv_ticket_airline;
+      ImageView ivTicketAirline = ViewBindings.findChildViewById(rootView, id);
+      if (ivTicketAirline == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ticket_class;
+      TextView tvTicketClass = ViewBindings.findChildViewById(rootView, id);
+      if (tvTicketClass == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ticket_date;
+      TextView tvTicketDate = ViewBindings.findChildViewById(rootView, id);
+      if (tvTicketDate == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ticket_duration;
+      TextView tvTicketDuration = ViewBindings.findChildViewById(rootView, id);
+      if (tvTicketDuration == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ticket_flight_no;
+      TextView tvTicketFlightNo = ViewBindings.findChildViewById(rootView, id);
+      if (tvTicketFlightNo == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ticket_from_city;
+      TextView tvTicketFromCity = ViewBindings.findChildViewById(rootView, id);
+      if (tvTicketFromCity == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ticket_from_code;
+      TextView tvTicketFromCode = ViewBindings.findChildViewById(rootView, id);
+      if (tvTicketFromCode == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ticket_from_full;
+      TextView tvTicketFromFull = ViewBindings.findChildViewById(rootView, id);
+      if (tvTicketFromFull == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ticket_passenger;
+      TextView tvTicketPassenger = ViewBindings.findChildViewById(rootView, id);
+      if (tvTicketPassenger == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ticket_price;
+      TextView tvTicketPrice = ViewBindings.findChildViewById(rootView, id);
+      if (tvTicketPrice == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ticket_seat;
+      TextView tvTicketSeat = ViewBindings.findChildViewById(rootView, id);
+      if (tvTicketSeat == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ticket_time;
+      TextView tvTicketTime = ViewBindings.findChildViewById(rootView, id);
+      if (tvTicketTime == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ticket_to_city;
+      TextView tvTicketToCity = ViewBindings.findChildViewById(rootView, id);
+      if (tvTicketToCity == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ticket_to_code;
+      TextView tvTicketToCode = ViewBindings.findChildViewById(rootView, id);
+      if (tvTicketToCode == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_ticket_to_full;
+      TextView tvTicketToFull = ViewBindings.findChildViewById(rootView, id);
+      if (tvTicketToFull == null) {
+        break missingId;
+      }
+
       return new ActivityTicketDetailsBinding((ConstraintLayout) rootView, btnBackConfirm,
-          btnBookFlight, header);
+          btnBookFlight, header, ivTicketAirline, tvTicketClass, tvTicketDate, tvTicketDuration,
+          tvTicketFlightNo, tvTicketFromCity, tvTicketFromCode, tvTicketFromFull, tvTicketPassenger,
+          tvTicketPrice, tvTicketSeat, tvTicketTime, tvTicketToCity, tvTicketToCode,
+          tvTicketToFull);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

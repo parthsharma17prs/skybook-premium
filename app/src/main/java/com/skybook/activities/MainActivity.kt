@@ -6,25 +6,36 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.skybook.R
+import com.skybook.adapters.RecommendationAdapter
+import com.skybook.data.FlightRepository
 import com.skybook.local.DataInitializer
 import com.skybook.utils.PrefsManager
+import kotlinx.coroutines.launch
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private var passengerCount = 1
     private var selectedClass = "Economy"
     private val classes = arrayOf("Economy", "Business", "First Class")
+    private lateinit var repository: FlightRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        repository = FlightRepository(this)
         val prefs = PrefsManager(this)
 
-        // Greet user
+        // Seed data on first launch
+        DataInitializer.seedData(this)
+
+        // UI Components
         val tvGreeting = findViewById<TextView>(R.id.tv_greeting)
-        tvGreeting.text = prefs.getUserName() ?: "Traveller"
+        tvGreeting.text = "Hi, ${prefs.getUserName() ?: "Traveller"}"
 
         val fromEt = findViewById<AutoCompleteTextView>(R.id.et_from_city)
         val toEt = findViewById<AutoCompleteTextView>(R.id.et_to_city)
@@ -33,6 +44,13 @@ class MainActivity : AppCompatActivity() {
         val tvDepartDate = findViewById<TextView>(R.id.tv_depart_date)
         val tvReturnDate = findViewById<TextView>(R.id.tv_return_date)
         val profileImg = findViewById<com.google.android.material.imageview.ShapeableImageView>(R.id.iv_profile)
+
+        // Setup Recommendations
+        val rvRec = findViewById<RecyclerView>(R.id.rv_recommendations)
+        rvRec.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        loadRecommendations(rvRec)
+
+        // ... existing search logic ...
 
         // Autocomplete suggestions
         val cities = arrayOf(
@@ -47,8 +65,6 @@ class MainActivity : AppCompatActivity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, cities)
         fromEt.setAdapter(adapter)
         toEt.setAdapter(adapter)
-        fromEt.threshold = 1
-        toEt.threshold = 1
 
         // Bell icon - show a toast for notifications
         findViewById<ImageView>(R.id.iv_bell).setOnClickListener {
@@ -96,12 +112,7 @@ class MainActivity : AppCompatActivity() {
 
         // Bottom nav
         findViewById<ImageView>(R.id.nav_home).setOnClickListener { 
-            Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
-        }
-        findViewById<ImageView>(R.id.nav_search).setOnClickListener { 
-            fromEt.requestFocus()
-            val imm = getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager
-            imm.showSoftInput(fromEt, android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT)
+            // Already home
         }
         findViewById<ImageView>(R.id.nav_bookings).setOnClickListener {
             startActivity(Intent(this, BookingHistoryActivity::class.java))
@@ -110,7 +121,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
 
-        // Search
+        // Search flights
         findViewById<FrameLayout>(R.id.btn_search_flights).setOnClickListener {
             val from = fromEt.text.toString().trim()
             val to = toEt.text.toString().trim()
@@ -127,9 +138,21 @@ class MainActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
+    }
 
-        // Seed data on first launch
-        DataInitializer.seedData(this)
+    private fun loadRecommendations(rv: RecyclerView) {
+        lifecycleScope.launch {
+            val recs = repository.getRecommendedFlights()
+            rv.adapter = RecommendationAdapter(recs) { flight ->
+                val intent = Intent(this@MainActivity, FlightResultsActivity::class.java).apply {
+                    putExtra("FROM_CITY", flight.fromCity)
+                    putExtra("TO_CITY", flight.toCity)
+                    putExtra("PASSENGERS", 1)
+                    putExtra("CLASS", "Economy")
+                }
+                startActivity(intent)
+            }
+        }
     }
 
     private fun monthShort(month: Int) = arrayOf("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")[month]

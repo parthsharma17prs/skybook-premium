@@ -27,7 +27,16 @@ public final class ActivityProfileBinding implements ViewBinding {
   public final ImageView btnBackProfile;
 
   @NonNull
+  public final CardView btnEditProfile;
+
+  @NonNull
   public final CardView btnLogout;
+
+  @NonNull
+  public final CardView btnNotifications;
+
+  @NonNull
+  public final CardView btnSupport;
 
   @NonNull
   public final CardView btnViewBookings;
@@ -39,22 +48,35 @@ public final class ActivityProfileBinding implements ViewBinding {
   public final ShapeableImageView ivProfilePic;
 
   @NonNull
+  public final TextView tvDestCount;
+
+  @NonNull
+  public final TextView tvFlightsCount;
+
+  @NonNull
   public final TextView tvProfileEmail;
 
   @NonNull
   public final TextView tvProfileName;
 
   private ActivityProfileBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageView btnBackProfile, @NonNull CardView btnLogout,
+      @NonNull ImageView btnBackProfile, @NonNull CardView btnEditProfile,
+      @NonNull CardView btnLogout, @NonNull CardView btnNotifications, @NonNull CardView btnSupport,
       @NonNull CardView btnViewBookings, @NonNull LinearLayout header,
-      @NonNull ShapeableImageView ivProfilePic, @NonNull TextView tvProfileEmail,
+      @NonNull ShapeableImageView ivProfilePic, @NonNull TextView tvDestCount,
+      @NonNull TextView tvFlightsCount, @NonNull TextView tvProfileEmail,
       @NonNull TextView tvProfileName) {
     this.rootView = rootView;
     this.btnBackProfile = btnBackProfile;
+    this.btnEditProfile = btnEditProfile;
     this.btnLogout = btnLogout;
+    this.btnNotifications = btnNotifications;
+    this.btnSupport = btnSupport;
     this.btnViewBookings = btnViewBookings;
     this.header = header;
     this.ivProfilePic = ivProfilePic;
+    this.tvDestCount = tvDestCount;
+    this.tvFlightsCount = tvFlightsCount;
     this.tvProfileEmail = tvProfileEmail;
     this.tvProfileName = tvProfileName;
   }
@@ -92,9 +114,27 @@ public final class ActivityProfileBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btn_edit_profile;
+      CardView btnEditProfile = ViewBindings.findChildViewById(rootView, id);
+      if (btnEditProfile == null) {
+        break missingId;
+      }
+
       id = R.id.btn_logout;
       CardView btnLogout = ViewBindings.findChildViewById(rootView, id);
       if (btnLogout == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_notifications;
+      CardView btnNotifications = ViewBindings.findChildViewById(rootView, id);
+      if (btnNotifications == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_support;
+      CardView btnSupport = ViewBindings.findChildViewById(rootView, id);
+      if (btnSupport == null) {
         break missingId;
       }
 
@@ -116,6 +156,18 @@ public final class ActivityProfileBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tv_dest_count;
+      TextView tvDestCount = ViewBindings.findChildViewById(rootView, id);
+      if (tvDestCount == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_flights_count;
+      TextView tvFlightsCount = ViewBindings.findChildViewById(rootView, id);
+      if (tvFlightsCount == null) {
+        break missingId;
+      }
+
       id = R.id.tv_profile_email;
       TextView tvProfileEmail = ViewBindings.findChildViewById(rootView, id);
       if (tvProfileEmail == null) {
@@ -128,8 +180,9 @@ public final class ActivityProfileBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityProfileBinding((ConstraintLayout) rootView, btnBackProfile, btnLogout,
-          btnViewBookings, header, ivProfilePic, tvProfileEmail, tvProfileName);
+      return new ActivityProfileBinding((ConstraintLayout) rootView, btnBackProfile, btnEditProfile,
+          btnLogout, btnNotifications, btnSupport, btnViewBookings, header, ivProfilePic,
+          tvDestCount, tvFlightsCount, tvProfileEmail, tvProfileName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

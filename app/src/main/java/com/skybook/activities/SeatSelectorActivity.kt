@@ -6,6 +6,7 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.*
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
@@ -191,7 +192,7 @@ class SeatSelectorActivity : AppCompatActivity() {
     private fun toggleSeat(seatId: String, icon: ImageView, label: TextView) {
         if (selectedSeats.contains(seatId)) {
             selectedSeats.remove(seatId)
-            icon.setColorFilter(Color.parseColor("#4CAF50"), android.graphics.PorterDuff.Mode.SRC_IN)
+            icon.setColorFilter(Color.parseColor("#673AB7"), android.graphics.PorterDuff.Mode.SRC_IN)
             label.setTextColor(Color.parseColor("#AAAAAA"))
         } else {
             selectedSeats.add(seatId)

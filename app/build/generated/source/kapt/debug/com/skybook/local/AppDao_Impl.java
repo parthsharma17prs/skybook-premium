@@ -43,6 +43,8 @@ public final class AppDao_Impl implements AppDao {
 
   private final SharedSQLiteStatement __preparedStmtOfUpdateBookingStatus;
 
+  private final SharedSQLiteStatement __preparedStmtOfDeleteBooking;
+
   public AppDao_Impl(@NonNull final RoomDatabase __db) {
     this.__db = __db;
     this.__insertionAdapterOfUserEntity = new EntityInsertionAdapter<UserEntity>(__db) {
@@ -175,6 +177,14 @@ public final class AppDao_Impl implements AppDao {
         return _query;
       }
     };
+    this.__preparedStmtOfDeleteBooking = new SharedSQLiteStatement(__db) {
+      @Override
+      @NonNull
+      public String createQuery() {
+        final String _query = "DELETE FROM bookings WHERE id = ?";
+        return _query;
+      }
+    };
   }
 
   @Override
@@ -260,6 +270,31 @@ public final class AppDao_Impl implements AppDao {
           }
         } finally {
           __preparedStmtOfUpdateBookingStatus.release(_stmt);
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object deleteBooking(final int bookingId, final Continuation<? super Unit> $completion) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      @NonNull
+      public Unit call() throws Exception {
+        final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteBooking.acquire();
+        int _argIndex = 1;
+        _stmt.bindLong(_argIndex, bookingId);
+        try {
+          __db.beginTransaction();
+          try {
+            _stmt.executeUpdateDelete();
+            __db.setTransactionSuccessful();
+            return Unit.INSTANCE;
+          } finally {
+            __db.endTransaction();
+          }
+        } finally {
+          __preparedStmtOfDeleteBooking.release(_stmt);
         }
       }
     }, $completion);
@@ -497,6 +532,111 @@ public final class AppDao_Impl implements AppDao {
   }
 
   @Override
+  public Object getFlightById(final int flightId,
+      final Continuation<? super FlightEntity> $completion) {
+    final String _sql = "SELECT * FROM flights WHERE id = ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, flightId);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<FlightEntity>() {
+      @Override
+      @Nullable
+      public FlightEntity call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
+          final int _cursorIndexOfFromCity = CursorUtil.getColumnIndexOrThrow(_cursor, "fromCity");
+          final int _cursorIndexOfToCity = CursorUtil.getColumnIndexOrThrow(_cursor, "toCity");
+          final int _cursorIndexOfFromCode = CursorUtil.getColumnIndexOrThrow(_cursor, "fromCode");
+          final int _cursorIndexOfToCode = CursorUtil.getColumnIndexOrThrow(_cursor, "toCode");
+          final int _cursorIndexOfDepartureTime = CursorUtil.getColumnIndexOrThrow(_cursor, "departureTime");
+          final int _cursorIndexOfArrivalTime = CursorUtil.getColumnIndexOrThrow(_cursor, "arrivalTime");
+          final int _cursorIndexOfDuration = CursorUtil.getColumnIndexOrThrow(_cursor, "duration");
+          final int _cursorIndexOfPrice = CursorUtil.getColumnIndexOrThrow(_cursor, "price");
+          final int _cursorIndexOfAirlineName = CursorUtil.getColumnIndexOrThrow(_cursor, "airlineName");
+          final int _cursorIndexOfAirlineLogo = CursorUtil.getColumnIndexOrThrow(_cursor, "airlineLogo");
+          final int _cursorIndexOfClassType = CursorUtil.getColumnIndexOrThrow(_cursor, "classType");
+          final FlightEntity _result;
+          if (_cursor.moveToFirst()) {
+            final int _tmpId;
+            _tmpId = _cursor.getInt(_cursorIndexOfId);
+            final String _tmpFromCity;
+            if (_cursor.isNull(_cursorIndexOfFromCity)) {
+              _tmpFromCity = null;
+            } else {
+              _tmpFromCity = _cursor.getString(_cursorIndexOfFromCity);
+            }
+            final String _tmpToCity;
+            if (_cursor.isNull(_cursorIndexOfToCity)) {
+              _tmpToCity = null;
+            } else {
+              _tmpToCity = _cursor.getString(_cursorIndexOfToCity);
+            }
+            final String _tmpFromCode;
+            if (_cursor.isNull(_cursorIndexOfFromCode)) {
+              _tmpFromCode = null;
+            } else {
+              _tmpFromCode = _cursor.getString(_cursorIndexOfFromCode);
+            }
+            final String _tmpToCode;
+            if (_cursor.isNull(_cursorIndexOfToCode)) {
+              _tmpToCode = null;
+            } else {
+              _tmpToCode = _cursor.getString(_cursorIndexOfToCode);
+            }
+            final String _tmpDepartureTime;
+            if (_cursor.isNull(_cursorIndexOfDepartureTime)) {
+              _tmpDepartureTime = null;
+            } else {
+              _tmpDepartureTime = _cursor.getString(_cursorIndexOfDepartureTime);
+            }
+            final String _tmpArrivalTime;
+            if (_cursor.isNull(_cursorIndexOfArrivalTime)) {
+              _tmpArrivalTime = null;
+            } else {
+              _tmpArrivalTime = _cursor.getString(_cursorIndexOfArrivalTime);
+            }
+            final String _tmpDuration;
+            if (_cursor.isNull(_cursorIndexOfDuration)) {
+              _tmpDuration = null;
+            } else {
+              _tmpDuration = _cursor.getString(_cursorIndexOfDuration);
+            }
+            final double _tmpPrice;
+            _tmpPrice = _cursor.getDouble(_cursorIndexOfPrice);
+            final String _tmpAirlineName;
+            if (_cursor.isNull(_cursorIndexOfAirlineName)) {
+              _tmpAirlineName = null;
+            } else {
+              _tmpAirlineName = _cursor.getString(_cursorIndexOfAirlineName);
+            }
+            final String _tmpAirlineLogo;
+            if (_cursor.isNull(_cursorIndexOfAirlineLogo)) {
+              _tmpAirlineLogo = null;
+            } else {
+              _tmpAirlineLogo = _cursor.getString(_cursorIndexOfAirlineLogo);
+            }
+            final String _tmpClassType;
+            if (_cursor.isNull(_cursorIndexOfClassType)) {
+              _tmpClassType = null;
+            } else {
+              _tmpClassType = _cursor.getString(_cursorIndexOfClassType);
+            }
+            _result = new FlightEntity(_tmpId,_tmpFromCity,_tmpToCity,_tmpFromCode,_tmpToCode,_tmpDepartureTime,_tmpArrivalTime,_tmpDuration,_tmpPrice,_tmpAirlineName,_tmpAirlineLogo,_tmpClassType);
+          } else {
+            _result = null;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
   public Object getFlightCount(final Continuation<? super Integer> $completion) {
     final String _sql = "SELECT COUNT(*) FROM flights";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
@@ -602,6 +742,39 @@ public final class AppDao_Impl implements AppDao {
           }
         } finally {
           __db.endTransaction();
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object getBookedSeats(final int flightId,
+      final Continuation<? super List<String>> $completion) {
+    final String _sql = "SELECT seatNumber FROM bookings WHERE flightId = ? AND status != 'CANCELLED'";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, flightId);
+    final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
+    return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<String>>() {
+      @Override
+      @NonNull
+      public List<String> call() throws Exception {
+        final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
+        try {
+          final List<String> _result = new ArrayList<String>(_cursor.getCount());
+          while (_cursor.moveToNext()) {
+            final String _item;
+            if (_cursor.isNull(0)) {
+              _item = null;
+            } else {
+              _item = _cursor.getString(0);
+            }
+            _result.add(_item);
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+          _statement.release();
         }
       }
     }, $completion);

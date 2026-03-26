@@ -6,6 +6,8 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.skybook.R
 import com.skybook.utils.PrefsManager
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +22,7 @@ class ProfileActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tv_profile_email).text = prefs.getUserEmail() ?: "user@skybook.app"
 
         // Fetch stats
-        androidx.lifecycle.lifecycleScope.launch {
+        lifecycleScope.launch {
             val dao = com.skybook.local.AppDatabase.getDatabase(this@ProfileActivity).dao()
             val bookings = dao.getUserBookings(prefs.getUserId())
             val count = bookings.filter { it.booking.status == "CONFIRMED" }.size

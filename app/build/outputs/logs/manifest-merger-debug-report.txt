@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:2:1-36:12
-INJECTED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:2:1-36:12
-INJECTED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:2:1-36:12
-INJECTED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:2:1-36:12
+ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:2:1-38:12
 MERGED from [androidx.databinding:viewbinding:8.2.1] /Users/macbook/.gradle/caches/8.14.2/transforms/6f69c58a412df0cfc3e4217f084bffb1/transformed/jetified-viewbinding-8.2.1/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-common:2.7.7] /Users/macbook/.gradle/caches/8.14.2/transforms/cc91a9907a7a96f1d5261e4b4381789c/transformed/navigation-common-2.7.7/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] /Users/macbook/.gradle/caches/8.14.2/transforms/5ac75eb6f460dc7e00934c18ba9eda41/transformed/navigation-common-ktx-2.7.7/AndroidManifest.xml:2:1-7:12
@@ -88,9 +88,17 @@ uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:5:5-79
 	android:name
 		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:5:22-76
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:6:5-77
+	android:name
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:6:22-74
+uses-permission#android.permission.VIBRATE
+ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:7:5-66
+	android:name
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:7:22-63
 application
-ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:7:5-34:19
-INJECTED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:7:5-34:19
+ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:9:5-36:19
+INJECTED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:9:5-36:19
 MERGED from [com.google.android.material:material:1.11.0] /Users/macbook/.gradle/caches/8.14.2/transforms/20c805f6bd9a2870c58a4d8aed312158/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] /Users/macbook/.gradle/caches/8.14.2/transforms/20c805f6bd9a2870c58a4d8aed312158/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/macbook/.gradle/caches/8.14.2/transforms/4973c57195438c6851807d81f3ac4a6c/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
@@ -118,67 +126,67 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/macb
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.12.0] /Users/macbook/.gradle/caches/8.14.2/transforms/cd47b64d694710e4256f2be42c4f561b/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:12:9-35
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:11:9-41
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:13:9-41
 	android:icon
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:10:9-43
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:12:9-43
 	android:allowBackup
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:9:9-35
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:11:9-35
 	android:theme
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:13:9-45
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:15:9-45
 	android:usesCleartextTraffic
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:14:9-44
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:16:9-44
 	android:name
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:8:9-43
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:10:9-43
 activity#com.skybook.activities.SplashActivity
-ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:16:9-23:20
+ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:18:9-25:20
 	android:exported
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:18:13-36
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:20:13-36
 	android:name
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:17:13-54
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:19:13-54
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:19:13-22:29
+ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:21:13-24:29
 action#android.intent.action.MAIN
-ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:20:17-69
+ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:20:25-66
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:21:17-77
+ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:23:17-77
 	android:name
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:21:27-74
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:23:27-74
 activity#com.skybook.activities.GetStartedActivity
-ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:25:9-67
+ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:27:9-67
 	android:name
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:25:19-64
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:27:19-64
 activity#com.skybook.activities.AuthActivity
-ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:26:9-61
+ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:28:9-61
 	android:name
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:26:19-58
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:28:19-58
 activity#com.skybook.activities.MainActivity
-ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:27:9-61
+ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:29:9-61
 	android:name
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:27:19-58
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:29:19-58
 activity#com.skybook.activities.FlightResultsActivity
-ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:28:9-70
+ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:30:9-70
 	android:name
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:28:19-67
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:30:19-67
 activity#com.skybook.activities.SeatSelectorActivity
-ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:29:9-69
+ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:31:9-69
 	android:name
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:29:19-66
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:31:19-66
 activity#com.skybook.activities.ConfirmationActivity
-ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:30:9-69
+ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:32:9-69
 	android:name
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:30:19-66
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:32:19-66
 activity#com.skybook.activities.BookingHistoryActivity
-ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:31:9-71
+ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:33:9-71
 	android:name
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:31:19-68
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:33:19-68
 activity#com.skybook.activities.ProfileActivity
-ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:32:9-64
+ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:34:9-64
 	android:name
-		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:32:19-61
+		ADDED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml:34:19-61
 uses-sdk
 INJECTED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/macbook/Documents/anti clg app/FlightBookingSystem/SkyBook/app/src/main/AndroidManifest.xml

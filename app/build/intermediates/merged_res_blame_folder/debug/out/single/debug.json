@@ -8,10 +8,6 @@
         "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/drawable/splash_bg.png"
     },
     {
-        "merged": "com.skybook.app-merged_res-55:/layout_activity_flight_results.xml.flat",
-        "source": "com.skybook.app-main-57:/layout/activity_flight_results.xml"
-    },
-    {
         "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-merged_res-55:/drawable_back.png.flat",
         "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/drawable/back.png"
     },
@@ -64,24 +60,12 @@
         "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/layout/activity_auth.xml"
     },
     {
-        "merged": "com.skybook.app-merged_res-55:/layout_activity_splash.xml.flat",
-        "source": "com.skybook.app-main-57:/layout/activity_splash.xml"
-    },
-    {
         "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-merged_res-55:/drawable_world.png.flat",
         "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/drawable/world.png"
     },
     {
         "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-merged_res-55:/font_outfit_bold.ttf.flat",
         "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/font/outfit_bold.ttf"
-    },
-    {
-        "merged": "com.skybook.app-merged_res-55:/layout_activity_get_started.xml.flat",
-        "source": "com.skybook.app-main-57:/layout/activity_get_started.xml"
-    },
-    {
-        "merged": "com.skybook.app-merged_res-55:/layout_item_flight_card.xml.flat",
-        "source": "com.skybook.app-main-57:/layout/item_flight_card.xml"
     },
     {
         "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-merged_res-55:/layout_activity_admin_dashboard.xml.flat",
@@ -192,10 +176,6 @@
         "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/drawable/bg_search_btn.xml"
     },
     {
-        "merged": "com.skybook.app-merged_res-55:/layout_activity_main.xml.flat",
-        "source": "com.skybook.app-main-57:/layout/activity_main.xml"
-    },
-    {
         "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-merged_res-55:/drawable_bottom_btn1.png.flat",
         "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/drawable/bottom_btn1.png"
     },
@@ -218,6 +198,10 @@
     {
         "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-merged_res-55:/drawable_ic_plane.xml.flat",
         "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/drawable/ic_plane.xml"
+    },
+    {
+        "merged": "com.skybook.app-merged_res-55:/layout_activity_choose_seats.xml.flat",
+        "source": "com.skybook.app-main-57:/layout/activity_choose_seats.xml"
     },
     {
         "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-merged_res-55:/drawable_bg_airplane_body.xml.flat",
@@ -272,6 +256,10 @@
         "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/drawable/airple_seat.png"
     },
     {
+        "merged": "com.skybook.app-merged_res-55:/layout_activity_ticket_details.xml.flat",
+        "source": "com.skybook.app-main-57:/layout/activity_ticket_details.xml"
+    },
+    {
         "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-merged_res-55:/drawable_bell_icon.png.flat",
         "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/drawable/bell_icon.png"
     },
@@ -286,6 +274,10 @@
     {
         "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-merged_res-55:/font_outfit.xml.flat",
         "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/font/outfit.xml"
+    },
+    {
+        "merged": "com.skybook.app-merged_res-55:/drawable_bg_status_cancelled.xml.flat",
+        "source": "com.skybook.app-main-57:/drawable/bg_status_cancelled.xml"
     },
     {
         "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-merged_res-55:/layout_activity_confirmation.xml.flat",
@@ -318,6 +310,10 @@
     {
         "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-merged_res-55:/raw_lottie_success.json.flat",
         "source": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-main-57:/raw/lottie_success.json"
+    },
+    {
+        "merged": "com.skybook.app-merged_res-55:/layout_activity_profile.xml.flat",
+        "source": "com.skybook.app-main-57:/layout/activity_profile.xml"
     },
     {
         "merged": "/Users/macbook/.gradle/daemon/8.14.2/com.skybook.app-merged_res-55:/layout_fragment_profile.xml.flat",
